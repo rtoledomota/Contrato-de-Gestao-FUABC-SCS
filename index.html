@@ -11,8 +11,12 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -25,46 +29,49 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
-            padding: 50px 40px;
-        }
-        
-        .header {
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 50px;
         }
         
-        .header h1 {
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
             color: #1a5f7a;
             font-size: 42px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 700;
         }
         
-        .header p {
+        .subtitle {
             color: #666;
             font-size: 18px;
+            margin-bottom: 40px;
             line-height: 1.6;
         }
         
         .intro {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            border-left: 5px solid #667eea;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            border-left: 5px solid #0066cc;
         }
         
         .intro p {
-            color: #333;
+            color: #0066cc;
             line-height: 1.8;
-            font-size: 16px;
+            font-size: 15px;
+            margin: 0;
         }
         
         .botoes-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
@@ -74,8 +81,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 25px;
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
             text-decoration: none;
             border-radius: 15px;
@@ -84,63 +91,84 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
-            min-height: 180px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            min-height: 200px;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
         }
         
         .botao:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            box-shadow: 0 15px 45px rgba(0, 102, 204, 0.6);
+            background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+        }
+        
+        .botao:active {
+            transform: translateY(-2px);
         }
         
         .botao-emoji {
-            font-size: 50px;
-            margin-bottom: 15px;
+            font-size: 56px;
+            margin-bottom: 18px;
         }
         
         .botao-texto {
             text-align: center;
             font-size: 15px;
+            font-weight: 600;
+            line-height: 1.4;
         }
         
         .footer {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid #e0e0e0;
-            color: #666;
-            font-size: 14px;
+            color: #888;
+            font-size: 13px;
             margin-top: 40px;
+        }
+        
+        .version {
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 15px;
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
             
-            .header h1 {
+            h1 {
                 font-size: 32px;
             }
             
-            .header p {
+            .subtitle {
                 font-size: 16px;
             }
             
             .botoes-container {
                 grid-template-columns: 1fr;
             }
+            
+            .botao {
+                min-height: 140px;
+                padding: 30px 20px;
+            }
+            
+            .botao-emoji {
+                font-size: 48px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>📊 Contrato de Gestão FUABC-SCS</h1>
-            <p>Sistema de Acompanhamento de Metas e Indicadores</p>
-        </div>
+        <div class="logo">📊</div>
+        
+        <h1>Contrato de Gestão FUABC-SCS</h1>
+        <p class="subtitle">Sistema de Acompanhamento de Metas e Indicadores</p>
         
         <div class="intro">
-            <p>Bem-vindo ao sistema de acompanhamento centralizado de metas e indicadores do Contrato de Gestão entre FUABC e SCS. Clique nos botões abaixo para acessar as páginas de cada módulo.</p>
+            <p>Bem-vindo ao sistema de acompanhamento centralizado de metas e indicadores do Contrato de Gestão entre FUABC e SCS. Clique nos botões abaixo para acessar cada módulo.</p>
         </div>
         
         <div class="botoes-container">
@@ -158,15 +186,11 @@
                 <div class="botao-emoji">🎯</div>
                 <div class="botao-texto">Indicadores de Monitoramento</div>
             </a>
-            
-            <a href="acompanhamento.html" class="botao">
-                <div class="botao-emoji">📊</div>
-                <div class="botao-texto">Acompanhamento das Metas</div>
-            </a>
         </div>
         
         <div class="footer">
-            <p>© 2025 Contrato de Gestão FUABC-SCS | Todos os dados são atualizados em tempo real</p>
+            <p>© 2025 Contrato de Gestão FUABC-SCS</p>
+            <div class="version">Dados carregados em tempo real das planilhas Google Sheets</div>
         </div>
     </div>
 </body>
