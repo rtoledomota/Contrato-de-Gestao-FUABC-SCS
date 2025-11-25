@@ -32,18 +32,6 @@
         .nav a.ativo { 
             background: #6cc24a; 
         }
-        .sheets-container {
-            margin-top: 20px;
-            height: 800px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .sheets-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
         .home-content {
             padding: 20px;
         }
@@ -53,6 +41,13 @@
             font-size: 24px;
             border-bottom: 2px solid #1a5f7a;
             padding-bottom: 10px;
+        }
+        .home-content ul {
+            margin: 15px 0 15px 20px;
+            line-height: 1.8;
+        }
+        .home-content li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -65,10 +60,9 @@
         
         <div class="nav">
             <a href="#" onclick="mostrarHome(event)" class="ativo">Home</a>
-            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=0" target="_blank">Qualitativas</a>
-            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=1" target="_blank">Quantitativas</a>
-            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=2" target="_blank">Indicadores</a>
-            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=3" target="_blank">Acompanhamento</a>
+            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=1462607986" target="_blank">Qualitativas</a>
+            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=962107158" target="_blank">Quantitativas</a>
+            <a href="https://docs.google.com/spreadsheets/d/1aX3fO-0_qy0j-h1o7zs26MQRttQkAxvw-Gx8YJzm044/edit?usp=sharing#gid=465774825" target="_blank">Indicadores</a>
         </div>
         
         <div id="home" class="home-content">
@@ -77,15 +71,18 @@
             
             <h2 style="margin-top: 30px;">Como usar</h2>
             <p>Clique nos botões acima para acessar as diferentes seções da planilha:</p>
-            <ul style="margin: 15px 0 15px 20px; line-height: 1.8;">
+            <ul>
                 <li><strong>Qualitativas:</strong> Metas qualitativas do contrato</li>
                 <li><strong>Quantitativas:</strong> Metas quantitativas e metas mensais</li>
                 <li><strong>Indicadores:</strong> Indicadores de monitoramento</li>
-                <li><strong>Acompanhamento:</strong> Acompanhamento mensal do contrato</li>
             </ul>
             
             <h2 style="margin-top: 30px;">Informações do Contrato</h2>
             <p>Este sistema permite o acompanhamento centralizado de todos os dados e indicadores do Contrato de Gestão FUABC-SCS, facilitando o gerenciamento e análise de metas.</p>
+            
+            <p style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+                <strong>📊 Dica:</strong> Clique em qualquer um dos botões acima para abrir a planilha Google Sheets com os dados atualizados em tempo real!
+            </p>
         </div>
     </div>
     
