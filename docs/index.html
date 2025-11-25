@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato FUABC SCS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { background: #1a5f7a; color: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        h1 { margin-bottom: 10px; font-size: 28px; }
+        .nav { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .nav button { padding: 12px 24px; background: #1a5f7a; color: white; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .nav button.ativo { background: #6cc24a; }
+        .secao { display: none; }
+        .secao.ativo { display: block; }
+        h2 { color: #1a5f7a; margin: 20px 0 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #1a5f7a; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contrato FUABC SCS</h1>
+            <p>Sistema de Acompanhamento de Metas e Indicadores</p>
+        </div>
+        
+        <div class="nav">
+            <button class="ativo" onclick="mostrar('home')">Home</button>
+            <button onclick="mostrar('qual')">Qualitativas</button>
+            <button onclick="mostrar('quant')">Quantitativas</button>
+            <button onclick="mostrar('indic')">Indicadores</button>
+            <button onclick="mostrar('acomp')">Acompanhamento</button>
+        </div>
+        
+        <div id="home" class="secao ativo">
+            <h2>Home</h2>
+            <p>Bem-vindo ao sistema de acompanhamento de metas e indicadores do Contrato de Gestao entre FUABC e SCS.</p>
+        </div>
+        
+        <div id="qual" class="secao">
+            <h2>Metas Qualitativas</h2>
+            <table>
+                <thead>
+                    <tr><th>Item</th><th>Descricao</th><th>Meta Anual</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>PROPORCAO DE GESTANTES COM 7 OU MAIS CONSULTAS DE PRE NATAL</td><td>0.7</td></tr>
+                    <tr><td>2</td><td>NUMERO DE ATENDIMENTOS DE PRIMEIRA CONSULTA ODONTOLOGICA</td><td>0.3</td></tr>
+                    <tr><td>3</td><td>PREENCHIMENTO DE PRONTUARIOS</td><td>0.6</td></tr>
+                    <tr><td>4</td><td>REALIZAR A CLASSIFICACAO DE RISCO NA UPA/SABIN</td><td>0.85</td></tr>
+                    <tr><td>5</td><td>ENTREGA DE RELATORIO COMENTADO DAS RECLAMACOES</td><td>100%</td></tr>
+                    <tr><td>6</td><td>PONTUALIDADE NA ENTREGA DOS RELATORIOS MENSAIS</td><td>100%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="quant" class="secao">
+            <h2>Metas Quantitativas</h2>
+            <table>
+                <thead>
+                    <tr><th>Descricao</th><th>Meta Mensal</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CONSULTAS MEDICAS</td><td>15000</td></tr>
+                    <tr><td>CONSULTAS DE PROF DE NIVEL SUP NAO MEDICOS</td><td>3700</td></tr>
+                    <tr><td>TOTAL ATENCAO BASICA</td><td>18700</td></tr>
+                    <tr><td>CONSULTAS MEDICAS ATENDE FACIL SAUDE</td><td>6100</td></tr>
+                    <tr><td>CONSULTAS MEDICAS CAISM</td><td>1000</td></tr>
+                    <tr><td>CONSULTAS MEDICAS CTNEN</td><td>2200</td></tr>
+                    <tr><td>PROCEDIMENTOS COM FINALIDADE DIAGNOSTICA</td><td>17168</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="indic" class="secao">
+            <h2>Indicadores de Monitoramento</h2>
+            <table>
+                <thead>
+                    <tr><th>Tipo de Atendimento</th><th>Meta Mensal</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Consultas medicas oftalmologicas</td><td>3688</td></tr>
+                    <tr><td>Consultas medicas no Complexo Hospitalar</td><td>8037</td></tr>
+                    <tr><td>Consultas de urgencia HMEAS/UPA</td><td>21634</td></tr>
+                    <tr><td>Consultas odontologicas na UPA</td><td>468</td></tr>
+                    <tr><td>Procedimentos oftalmologicos com finalidade diagnostica</td><td>9511</td></tr>
+                    <tr><td>Procedimentos cirurgicos oftalmologicos</td><td>182</td></tr>
+                    <tr><td>Procedimentos cirurgicos do Complexo Hospitalar</td><td>500</td></tr>
+                    <tr><td>Atendimentos pre-hospitalares SOS Cidadao</td><td>1278</td></tr>
+                    <tr><td>Saidas hospitalares Complexo Hospitalar</td><td>595</td></tr>
+                    <tr><td>Saidas hospitalares HMEAS</td><td>432</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="acomp" class="secao">
+            <h2>Acompanhamento Mensal</h2>
+            <table>
+                <thead>
+                    <tr><th>Mes</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Janeiro</td><td>Em dia</td></tr>
+                    <tr><td>Fevereiro</td><td>Em dia</td></tr>
+                    <tr><td>Marco</td><td>Atraso menor</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        function mostrar(id) {
+            document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativo'));
+            document.querySelectorAll('.nav button').forEach(b => b.classList.remove('ativo'));
+            document.getElementById(id).classList.add('ativo');
+            event.target.classList.add('ativo');
+        }
+    </script>
+</body>
+</html>
