@@ -6,51 +6,246 @@
     <title>Contrato de Gestão - FUABC-SCS</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: white; color: #333; padding: 40px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #1a5f7a; font-size: 32px; margin-bottom: 10px; }
-        .subtitle { color: #666; font-size: 16px; margin-bottom: 30px; }
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card a { display: block; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
-        .card a:hover { opacity: 0.9; }
-        .card h3 { color: #333; margin-bottom: 10px; }
-        .card-quali { border-left: 5px solid #1db384; }
-        .card-quanti { border-left: 5px solid #6cc24a; }
-        .card-indic { border-left: 5px solid #00a8b5; }
-        .card-acomp { border-left: 5px solid #1a5f7a; }
+        .header { background: #1a5f7a; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .nav button { background: white; color: #1a5f7a; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .nav button.active { background: #6cc24a; color: white; }
+        .nav button:hover { opacity: 0.8; }
+        .content { background: white; padding: 20px; border-radius: 8px; display: none; }
+        .content.active { display: block; }
+        h1 { color: #1a5f7a; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #1a5f7a; color: white; font-weight: bold; }
+        tr:hover { background: #f9f9f9; }
+        .status-concluido { color: #27ae60; font-weight: bold; }
+        .status-andamento { color: #f39c12; font-weight: bold; }
+        .status-planejado { color: #3498db; font-weight: bold; }
+        .progress { background: #e0e0e0; border-radius: 5px; overflow: hidden; height: 20px; }
+        .progress-bar { background: #6cc24a; height: 100%; border-radius: 5px; }
+        .metric { font-size: 18px; font-weight: bold; color: #1a5f7a; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>📋 Contrato de Gestão FUABC-SCS</h1>
-            <p class="subtitle">Sistema de Acompanhamento de Metas e Indicadores</p>
+            <p>Sistema de Acompanhamento de Metas e Indicadores</p>
+            <div class="nav">
+                <button class="nav-btn active" onclick="showTab('home')">🏠 Home</button>
+                <button class="nav-btn" onclick="showTab('meta1')">✅ Qualitativas</button>
+                <button class="nav-btn" onclick="showTab('meta2')">📊 Quantitativas</button>
+                <button class="nav-btn" onclick="showTab('meta3')">📈 Indicadores</button>
+                <button class="nav-btn" onclick="showTab('acomp')">📅 Acompanhamento</button>
+            </div>
         </div>
-        <div class="cards">
-            <div class="card card-quali">
-                <h3>✅ Metas Qualitativas</h3>
-                <p>Objetivos estratégicos de qualidade e processos</p>
-                <a href="meta1.html">Acessar</a>
-            </div>
-            <div class="card card-quanti">
-                <h3>📊 Metas Quantitativas</h3>
-                <p>Indicadores numéricos e targets de produção</p>
-                <a href="meta2.html">Acessar</a>
-            </div>
-            <div class="card card-indic">
-                <h3>📈 Indicadores</h3>
-                <p>Métricas de monitoramento e performance</p>
-                <a href="meta3.html">Acessar</a>
-            </div>
-            <div class="card card-acomp">
-                <h3>📅 Acompanhamento</h3>
-                <p>Progresso mensal das metas e indicadores</p>
-                <a href="acompanhamento.html">Acessar</a>
-            </div>
+
+        <!-- HOME -->
+        <div id="home" class="content active">
+            <h2>Bem-vindo ao Sistema</h2>
+            <p>Selecione uma opção acima para visualizar as metas e indicadores.</p>
+        </div>
+
+        <!-- META 1 - QUALITATIVAS -->
+        <div id="meta1" class="content">
+            <h2>✅ Metas Qualitativas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Meta</th>
+                        <th>Responsável</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Implementar sistema de gestão de qualidade</td>
+                        <td>FUABC</td>
+                        <td class="status-andamento">Em andamento</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Capacitar equipes em processos de qualidade</td>
+                        <td>SCS</td>
+                        <td class="status-planejado">Planejado</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Elaborar protocolos de atendimento</td>
+                        <td>FUABC</td>
+                        <td class="status-concluido">Concluído</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- META 2 - QUANTITATIVAS -->
+        <div id="meta2" class="content">
+            <h2>📊 Metas Quantitativas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Meta</th>
+                        <th>Inicial</th>
+                        <th>Final</th>
+                        <th>Realizado</th>
+                        <th>Progresso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Aumentar atendimentos</td>
+                        <td>1.000</td>
+                        <td>1.200</td>
+                        <td>1.100</td>
+                        <td><div class="progress"><div class="progress-bar" style="width: 91.7%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Reduzir tempo de espera</td>
+                        <td>45 min</td>
+                        <td>30 min</td>
+                        <td>35 min</td>
+                        <td><div class="progress"><div class="progress-bar" style="width: 83.3%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Melhorar satisfação</td>
+                        <td>75%</td>
+                        <td>90%</td>
+                        <td>85%</td>
+                        <td><div class="progress"><div class="progress-bar" style="width: 94.4%;"></div></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- META 3 - INDICADORES -->
+        <div id="meta3" class="content">
+            <h2>📈 Indicadores de Monitoramento</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Indicador</th>
+                        <th>Meta</th>
+                        <th>Realizado</th>
+                        <th>Unidade</th>
+                        <th>Performance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Taxa de Ocupação</td>
+                        <td class="metric">85%</td>
+                        <td class="metric">82%</td>
+                        <td>%</td>
+                        <td>96.5%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Custo por Atendimento</td>
+                        <td class="metric">R$ 150</td>
+                        <td class="metric">R$ 145</td>
+                        <td>R$</td>
+                        <td>96.7%</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Produtividade</td>
+                        <td class="metric">100</td>
+                        <td class="metric">98</td>
+                        <td>índice</td>
+                        <td>98%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ACOMPANHAMENTO -->
+        <div id="acomp" class="content">
+            <h2>📅 Acompanhamento Mensal</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Metas Qualitativas</th>
+                        <th>Metas Quantitativas</th>
+                        <th>Indicadores</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Janeiro</td>
+                        <td>3/3</td>
+                        <td>3/3</td>
+                        <td>3/3</td>
+                        <td class="status-concluido">✅ Em dia</td>
+                    </tr>
+                    <tr>
+                        <td>Fevereiro</td>
+                        <td>3/3</td>
+                        <td>3/3</td>
+                        <td>3/3</td>
+                        <td class="status-concluido">✅ Em dia</td>
+                    </tr>
+                    <tr>
+                        <td>Março</td>
+                        <td>2/3</td>
+                        <td>3/3</td>
+                        <td>3/3</td>
+                        <td class="status-andamento">⚠️ Atraso menor</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
+    <script>
+        function showTab(tabName) {
+            // Esconder todos os conteúdos
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // Desativar todos os botões
+            var btns = document.querySelectorAll('.nav-btn');
+            btns.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar o conteúdo selecionado
+            document.getElementById(tabName).classList.add('active');
+
+            // Ativar o botão clicado
+            event.target.classList.add('active');
+
+            // Atualizar URL
+            window.location.hash = tabName;
+        }
+
+        // Ao carregar a página, verificar se há hash na URL
+        window.addEventListener('load', function() {
+            var hash = window.location.hash.substring(1);
+            if (hash) {
+                // Encontrar o botão correspondente e clicar
+                var btns = document.querySelectorAll('.nav-btn');
+                btns.forEach(function(btn) {
+                    if (btn.onclick.toString().includes("'" + hash + "'")) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <script>
+        // Pegar o caminho solicitado
+        var path = window.location.pathname;
+        
+        // Mapeamento de redirecionamentos
+        var redirects = {
+            '/Contrato-de-Gestao-FUABC-SCS/meta1.html': '/Contrato-de-Gestao-FUABC-SCS/#meta1',
+            '/Contrato-de-Gestao-FUABC-SCS/meta2.html': '/Contrato-de-Gestao-FUABC-SCS/#meta2',
+            '/Contrato-de-Gestao-FUABC-SCS/meta3.html': '/Contrato-de-Gestao-FUABC-SCS/#meta3'
+        };
+        
+        // Se o arquivo está no mapeamento, redirecionar
+        if (redirects[path]) {
+            window.location.href = redirects[path];
+        } else {
+            // Caso contrário, voltar para home
+            window.location.href = '/Contrato-de-Gestao-FUABC-SCS/';
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecionando...</p>
+</body>
+</html>
