@@ -4,71 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metas Qualitativas - FUABC-SCS</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: #1db384; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .nav a { background: white; color: #1db384; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .nav a.ativo { background: white; color: #1db384; font-weight: bold; }
-        .nav a:hover { opacity: 0.8; }
-        .content { background: white; padding: 20px; border-radius: 8px; }
-        h1 { color: #1db384; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #1db384; color: white; font-weight: bold; }
-        tr:hover { background: #f9f9f9; }
-        .status-concluido { color: #27ae60; font-weight: bold; }
-        .status-andamento { color: #f39c12; font-weight: bold; }
-        .status-planejado { color: #3498db; font-weight: bold; }
-    </style>
+    <script>
+        // Redirect para página com dados embutidos
+        document.addEventListener('DOMContentLoaded', function() {
+            var data = {
+                titulo: "Metas Qualitativas",
+                cor: "#1db384",
+                metas: [
+                    {id: 1, meta: "Implementar sistema de gestão de qualidade", responsavel: "FUABC", status: "Em andamento"},
+                    {id: 2, meta: "Capacitar equipes em processos de qualidade", responsavel: "SCS", status: "Planejado"},
+                    {id: 3, meta: "Elaborar protocolos de atendimento", responsavel: "FUABC", status: "Concluído"}
+                ]
+            };
+            renderPage(data);
+        });
+        
+        function renderPage(data) {
+            var html = `
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+                    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+                    .header { background: ${data.cor}; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+                    .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+                    .nav a { background: white; color: ${data.cor}; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+                    .nav a:hover { opacity: 0.8; }
+                    .content { background: white; padding: 20px; border-radius: 8px; }
+                    h1 { color: ${data.cor}; margin-bottom: 20px; }
+                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+                    th { background: ${data.cor}; color: white; font-weight: bold; }
+                    tr:hover { background: #f9f9f9; }
+                    .status-concluido { color: #27ae60; font-weight: bold; }
+                    .status-andamento { color: #f39c12; font-weight: bold; }
+                    .status-planejado { color: #3498db; font-weight: bold; }
+                </style>
+                <div class="container">
+                    <div class="header">
+                        <h1>✅ ${data.titulo}</h1>
+                        <div class="nav">
+                            <a href="index.html">🏠 Home</a>
+                            <a href="meta1.html">✅ Qualitativas</a>
+                            <a href="meta2.html">📊 Quantitativas</a>
+                            <a href="meta3.html">📈 Indicadores</a>
+                            <a href="acompanhamento.html">📅 Acompanhamento</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>Metas Qualitativas</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Meta</th>
+                                    <th>Responsável</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.metas.map(m => `
+                                    <tr>
+                                        <td>${m.id}</td>
+                                        <td>${m.meta}</td>
+                                        <td>${m.responsavel}</td>
+                                        <td class="status-${m.status.toLowerCase().replace(' ', '-')}">${m.status}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            document.body.innerHTML = html;
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>✅ Metas Qualitativas</h1>
-            <div class="nav">
-                <a href="index.html">🏠 Home</a>
-                <a href="meta1.html" class="ativo">✅ Qualitativas</a>
-                <a href="meta2.html">📊 Quantitativas</a>
-                <a href="meta3.html">📈 Indicadores</a>
-                <a href="acompanhamento.html">📅 Acompanhamento</a>
-            </div>
-        </div>
-        <div class="content">
-            <h2>Metas Qualitativas do Contrato de Gestão</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Meta</th>
-                        <th>Responsável</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Implementar sistema de gestão de qualidade</td>
-                        <td>FUABC</td>
-                        <td class="status-andamento">Em andamento</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Capacitar equipes em processos de qualidade</td>
-                        <td>SCS</td>
-                        <td class="status-planejado">Planejado</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Elaborar protocolos de atendimento</td>
-                        <td>FUABC</td>
-                        <td class="status-concluido">Concluído</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <p>Carregando...</p>
 </body>
 </html>

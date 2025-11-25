@@ -4,78 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metas Quantitativas - FUABC-SCS</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: #6cc24a; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .nav a { background: white; color: #6cc24a; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .nav a.ativo { background: white; color: #6cc24a; font-weight: bold; }
-        .nav a:hover { opacity: 0.8; }
-        .content { background: white; padding: 20px; border-radius: 8px; }
-        h1 { color: #6cc24a; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #6cc24a; color: white; font-weight: bold; }
-        tr:hover { background: #f9f9f9; }
-        .progress { background: #e0e0e0; border-radius: 5px; overflow: hidden; }
-        .progress-bar { background: #6cc24a; height: 20px; border-radius: 5px; }
-    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var data = {
+                titulo: "Metas Quantitativas",
+                cor: "#6cc24a",
+                metas: [
+                    {id: 1, meta: "Aumentar atendimentos", inicial: 1000, final: 1200, realizado: 1100, percentual: 91.7},
+                    {id: 2, meta: "Reduzir tempo de espera", inicial: "45 min", final: "30 min", realizado: "35 min", percentual: 83.3},
+                    {id: 3, meta: "Melhorar satisfação", inicial: "75%", final: "90%", realizado: "85%", percentual: 94.4}
+                ]
+            };
+            renderPage(data);
+        });
+        
+        function renderPage(data) {
+            var html = `
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+                    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+                    .header { background: ${data.cor}; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+                    .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+                    .nav a { background: white; color: ${data.cor}; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+                    .nav a:hover { opacity: 0.8; }
+                    .content { background: white; padding: 20px; border-radius: 8px; }
+                    h1 { color: ${data.cor}; margin-bottom: 20px; }
+                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+                    th { background: ${data.cor}; color: white; font-weight: bold; }
+                    tr:hover { background: #f9f9f9; }
+                    .progress { background: #e0e0e0; border-radius: 5px; overflow: hidden; height: 20px; }
+                    .progress-bar { background: ${data.cor}; height: 100%; border-radius: 5px; }
+                </style>
+                <div class="container">
+                    <div class="header">
+                        <h1>📊 ${data.titulo}</h1>
+                        <div class="nav">
+                            <a href="index.html">🏠 Home</a>
+                            <a href="meta1.html">✅ Qualitativas</a>
+                            <a href="meta2.html">📊 Quantitativas</a>
+                            <a href="meta3.html">📈 Indicadores</a>
+                            <a href="acompanhamento.html">📅 Acompanhamento</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>Metas Quantitativas</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Meta</th>
+                                    <th>Inicial</th>
+                                    <th>Final</th>
+                                    <th>Realizado</th>
+                                    <th>Progresso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.metas.map(m => `
+                                    <tr>
+                                        <td>${m.id}</td>
+                                        <td>${m.meta}</td>
+                                        <td>${m.inicial}</td>
+                                        <td>${m.final}</td>
+                                        <td>${m.realizado}</td>
+                                        <td><div class="progress"><div class="progress-bar" style="width: ${m.percentual}%;"></div></div></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            document.body.innerHTML = html;
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📊 Metas Quantitativas</h1>
-            <div class="nav">
-                <a href="index.html">🏠 Home</a>
-                <a href="meta1.html">✅ Qualitativas</a>
-                <a href="meta2.html" class="ativo">📊 Quantitativas</a>
-                <a href="meta3.html">📈 Indicadores</a>
-                <a href="acompanhamento.html">📅 Acompanhamento</a>
-            </div>
-        </div>
-        <div class="content">
-            <h2>Metas Quantitativas do Contrato de Gestão</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Meta</th>
-                        <th>Inicial</th>
-                        <th>Final</th>
-                        <th>Realizado</th>
-                        <th>Progresso</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Aumentar atendimentos</td>
-                        <td>1.000</td>
-                        <td>1.200</td>
-                        <td>1.100</td>
-                        <td><div class="progress"><div class="progress-bar" style="width: 91.7%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Reduzir tempo de espera</td>
-                        <td>45 min</td>
-                        <td>30 min</td>
-                        <td>35 min</td>
-                        <td><div class="progress"><div class="progress-bar" style="width: 83.3%;"></div></div></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Melhorar satisfação</td>
-                        <td>75%</td>
-                        <td>90%</td>
-                        <td>85%</td>
-                        <td><div class="progress"><div class="progress-bar" style="width: 94.4%;"></div></div></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <p>Carregando...</p>
 </body>
 </html>

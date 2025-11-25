@@ -4,77 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indicadores - FUABC-SCS</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: #00a8b5; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
-        .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .nav a { background: white; color: #00a8b5; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .nav a.ativo { background: white; color: #00a8b5; font-weight: bold; }
-        .nav a:hover { opacity: 0.8; }
-        .content { background: white; padding: 20px; border-radius: 8px; }
-        h1 { color: #00a8b5; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #00a8b5; color: white; font-weight: bold; }
-        tr:hover { background: #f9f9f9; }
-        .metric { font-size: 18px; font-weight: bold; color: #00a8b5; }
-    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var data = {
+                titulo: "Indicadores de Monitoramento",
+                cor: "#00a8b5",
+                indicadores: [
+                    {id: 1, nome: "Taxa de Ocupação", meta: "85%", realizado: "82%", unidade: "%", performance: "96.5%"},
+                    {id: 2, nome: "Custo por Atendimento", meta: "R$ 150", realizado: "R$ 145", unidade: "R$", performance: "96.7%"},
+                    {id: 3, nome: "Produtividade", meta: "100", realizado: "98", unidade: "índice", performance: "98%"}
+                ]
+            };
+            renderPage(data);
+        });
+        
+        function renderPage(data) {
+            var html = `
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: Arial, sans-serif; background: #f5f5f5; }
+                    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+                    .header { background: ${data.cor}; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+                    .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+                    .nav a { background: white; color: ${data.cor}; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+                    .nav a:hover { opacity: 0.8; }
+                    .content { background: white; padding: 20px; border-radius: 8px; }
+                    h1 { color: ${data.cor}; margin-bottom: 20px; }
+                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+                    th { background: ${data.cor}; color: white; font-weight: bold; }
+                    tr:hover { background: #f9f9f9; }
+                    .metric { font-size: 18px; font-weight: bold; color: ${data.cor}; }
+                </style>
+                <div class="container">
+                    <div class="header">
+                        <h1>📈 ${data.titulo}</h1>
+                        <div class="nav">
+                            <a href="index.html">🏠 Home</a>
+                            <a href="meta1.html">✅ Qualitativas</a>
+                            <a href="meta2.html">📊 Quantitativas</a>
+                            <a href="meta3.html">📈 Indicadores</a>
+                            <a href="acompanhamento.html">📅 Acompanhamento</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>Indicadores de Monitoramento</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Indicador</th>
+                                    <th>Meta</th>
+                                    <th>Realizado</th>
+                                    <th>Unidade</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.indicadores.map(ind => `
+                                    <tr>
+                                        <td>${ind.id}</td>
+                                        <td>${ind.nome}</td>
+                                        <td class="metric">${ind.meta}</td>
+                                        <td class="metric">${ind.realizado}</td>
+                                        <td>${ind.unidade}</td>
+                                        <td>${ind.performance}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            document.body.innerHTML = html;
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📈 Indicadores de Monitoramento</h1>
-            <div class="nav">
-                <a href="index.html">🏠 Home</a>
-                <a href="meta1.html">✅ Qualitativas</a>
-                <a href="meta2.html">📊 Quantitativas</a>
-                <a href="meta3.html" class="ativo">📈 Indicadores</a>
-                <a href="acompanhamento.html">📅 Acompanhamento</a>
-            </div>
-        </div>
-        <div class="content">
-            <h2>Indicadores de Monitoramento</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Indicador</th>
-                        <th>Meta</th>
-                        <th>Realizado</th>
-                        <th>Unidade</th>
-                        <th>Performance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Taxa de Ocupação</td>
-                        <td class="metric">85%</td>
-                        <td class="metric">82%</td>
-                        <td>%</td>
-                        <td>96.5%</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Custo por Atendimento</td>
-                        <td class="metric">R$ 150</td>
-                        <td class="metric">R$ 145</td>
-                        <td>R$</td>
-                        <td>96.7%</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Produtividade</td>
-                        <td class="metric">100</td>
-                        <td class="metric">98</td>
-                        <td>índice</td>
-                        <td>98%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <p>Carregando...</p>
 </body>
 </html>
