@@ -10,247 +10,214 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            min-height: 100vh;
-            color: #334155;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
-        
+
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-            padding: 40px 0;
-            margin-bottom: 60px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        
-        header .container {
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+            color: white;
+            padding: 60px 40px;
             text-align: center;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
         }
-        
-        .logo-icon {
-            font-size: 64px;
-            margin-bottom: 15px;
-        }
-        
-        h1 {
+
+        header h1 {
             font-size: 42px;
-            color: #1e293b;
             margin-bottom: 10px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
-        
-        .subtitle {
+
+        header p {
             font-size: 18px;
-            color: #64748b;
-            margin-bottom: 0;
+            opacity: 0.95;
+            margin: 0;
         }
-        
+
+        .emoji {
+            font-size: 56px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
         main {
-            padding: 40px 0;
+            margin-bottom: 50px;
         }
-        
+
         .intro-section {
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 30px;
             margin-bottom: 50px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            border-left: 5px solid #3b82f6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #0066cc;
         }
-        
+
         .intro-section p {
-            color: #475569;
+            color: #666;
             font-size: 16px;
             line-height: 1.8;
             margin: 0;
         }
-        
+
         .modules-title {
             font-size: 28px;
-            color: #1e293b;
+            color: #1a1a1a;
             margin-bottom: 30px;
             font-weight: 600;
         }
-        
+
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
-        
+
         .module-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #f8f9fa;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
         }
-        
+
         .module-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
-            border-color: #3b82f6;
+            box-shadow: 0 12px 24px rgba(0, 102, 204, 0.15);
+            border-color: #0066cc;
         }
-        
+
         .module-icon {
             font-size: 48px;
             margin-bottom: 15px;
+            display: block;
         }
-        
+
         .module-title {
             font-size: 20px;
-            color: #1e293b;
-            margin-bottom: 10px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
             font-weight: 600;
         }
-        
+
         .module-description {
             font-size: 14px;
-            color: #64748b;
-            margin-bottom: 0;
-            flex-grow: 1;
+            color: #666;
+            margin-bottom: 15px;
         }
-        
+
         .module-link {
-            color: #3b82f6;
+            color: #0066cc;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 15px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: all 0.3s;
         }
-        
+
         .module-link:hover {
-            color: #2563eb;
+            color: #0088ff;
+            gap: 12px;
         }
-        
-        .arrow {
-            transition: transform 0.3s;
-        }
-        
-        .module-card:hover .arrow {
-            transform: translateX(4px);
-        }
-        
+
         footer {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: #cbd5e1;
+            background: #1a1a1a;
+            color: #999;
             text-align: center;
-            padding: 40px 0;
-            margin-top: 80px;
-            font-size: 14px;
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-top: 50px;
         }
-        
+
         footer p {
             margin: 0;
         }
-        
+
         @media (max-width: 768px) {
             header {
-                padding: 30px 0;
-                margin-bottom: 40px;
+                padding: 40px 20px;
             }
-            
-            h1 {
-                font-size: 32px;
+
+            header h1 {
+                font-size: 28px;
             }
-            
-            .subtitle {
-                font-size: 16px;
+
+            header p {
+                font-size: 14px;
             }
-            
+
             .modules-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
-            
-            main {
-                padding: 20px 0;
-            }
-            
-            .intro-section {
-                padding: 20px;
+
+            .emoji {
+                font-size: 42px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-icon">📊</div>
+    <div class="container">
+        <header>
+            <span class="emoji">📊</span>
             <h1>Contrato de Gestão FUABC-SCS</h1>
-            <p class="subtitle">Sistema de Acompanhamento de Metas e Indicadores</p>
-        </div>
-    </header>
-    
-    <main>
-        <div class="container">
+            <p>Sistema de Acompanhamento de Metas e Indicadores</p>
+        </header>
+
+        <main>
             <div class="intro-section">
-                <p>Bem-vindo ao sistema centralizado de acompanhamento de metas e indicadores do Contrato de Gestão entre FUABC e SCS. Acesse os módulos abaixo para consultar dados, metas qualitativas, quantitativas e indicadores de monitoramento em tempo real.</p>
+                <p>Bem-vindo ao sistema centralizado de acompanhamento de metas e indicadores do Contrato de Gestão entre FUABC e SCS. Acesse os módulos abaixo para consultar dados em tempo real.</p>
             </div>
-            
+
             <h2 class="modules-title">Módulos Disponíveis</h2>
-            
+
             <div class="modules-grid">
                 <a href="qualitativas.html" class="module-card">
-                    <div class="module-icon">📋</div>
+                    <span class="module-icon">📋</span>
                     <h3 class="module-title">Metas Qualitativas</h3>
-                    <p class="module-description">Acompanhe as metas qualitativas do contrato com indicadores de proporção, processos e conformidade.</p>
-                    <span class="module-link">
-                        Acessar
-                        <span class="arrow">→</span>
-                    </span>
+                    <p class="module-description">Acompanhe as metas qualitativas do contrato com indicadores de conformidade.</p>
+                    <span class="module-link">Acessar →</span>
                 </a>
-                
+
                 <a href="quantitativas.html" class="module-card">
-                    <div class="module-icon">📈</div>
+                    <span class="module-icon">📈</span>
                     <h3 class="module-title">Metas Quantitativas</h3>
-                    <p class="module-description">Visualize as metas quantitativas de atenção à saúde e acompanhamento de volumes.</p>
-                    <span class="module-link">
-                        Acessar
-                        <span class="arrow">→</span>
-                    </span>
+                    <p class="module-description">Visualize as metas quantitativas de atenção à saúde.</p>
+                    <span class="module-link">Acessar →</span>
                 </a>
-                
+
                 <a href="indicadores.html" class="module-card">
-                    <div class="module-icon">🎯</div>
+                    <span class="module-icon">🎯</span>
                     <h3 class="module-title">Indicadores de Monitoramento</h3>
-                    <p class="module-description">Acompanhe os indicadores de monitoramento e metas de diferentes tipos de atendimento.</p>
-                    <span class="module-link">
-                        Acessar
-                        <span class="arrow">→</span>
-                    </span>
+                    <p class="module-description">Acompanhe os indicadores de monitoramento em tempo real.</p>
+                    <span class="module-link">Acessar →</span>
                 </a>
             </div>
-        </div>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <p>© 2025 Contrato de Gestão FUABC-SCS | Dados atualizados em tempo real das planilhas Google Sheets</p>
-        </div>
-    </footer>
+        </main>
+
+        <footer>
+            <p>© 2025 Contrato de Gestão FUABC-SCS | Dados atualizados em tempo real</p>
+        </footer>
+    </div>
 </body>
 </html>

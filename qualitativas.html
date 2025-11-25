@@ -10,38 +10,34 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            min-height: 100vh;
-            color: #334155;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+            color: white;
             padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
             position: relative;
         }
-        
+
         .btn-voltar {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: #3b82f6;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             padding: 10px 20px;
             border-radius: 8px;
@@ -49,80 +45,77 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.3s;
-            border: none;
+            border: 2px solid white;
             cursor: pointer;
         }
-        
+
         .btn-voltar:hover {
-            background: #2563eb;
+            background: white;
+            color: #0066cc;
             transform: translateX(-3px);
         }
-        
+
         header h1 {
             font-size: 36px;
-            color: #1e293b;
             margin-bottom: 8px;
             font-weight: 700;
-            letter-spacing: -0.5px;
         }
-        
+
         header p {
-            color: #64748b;
             font-size: 16px;
+            opacity: 0.95;
             margin: 0;
         }
-        
+
         .content {
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        
+
         .info-box {
-            background: #f0f9ff;
-            border-left: 4px solid #3b82f6;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+            border-left: 5px solid #0066cc;
             padding: 20px;
             border-radius: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        
+
         .info-box p {
-            color: #0c4a6e;
+            color: #0066cc;
             font-size: 14px;
             margin: 0;
             line-height: 1.6;
         }
-        
+
         .controls {
             display: flex;
             gap: 15px;
             margin-bottom: 25px;
             flex-wrap: wrap;
-            align-items: center;
         }
-        
+
         .search-box {
             flex: 1;
             min-width: 250px;
             padding: 12px 16px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 14px;
             transition: all 0.3s;
-            font-family: inherit;
         }
-        
+
         .search-box:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
         }
-        
+
         .btn-reload {
             padding: 12px 24px;
-            background: #3b82f6;
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -131,90 +124,87 @@
             transition: all 0.3s;
             font-size: 14px;
         }
-        
+
         .btn-reload:hover {
-            background: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
         }
-        
+
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
-        
+
         .stat-card {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
             padding: 25px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
             transition: all 0.3s;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
         }
-        
+
         .stat-card h3 {
             font-size: 28px;
             margin-bottom: 8px;
             font-weight: 700;
         }
-        
+
         .stat-card p {
             font-size: 13px;
             opacity: 0.9;
             margin: 0;
         }
-        
+
         .table-wrapper {
             overflow-x: auto;
             border-radius: 8px;
-            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 13px;
             background: white;
         }
-        
+
         thead {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
             position: sticky;
             top: 0;
             z-index: 10;
         }
-        
+
         th {
             padding: 16px;
             text-align: left;
             font-weight: 600;
-            letter-spacing: 0.3px;
-            border-bottom: 2px solid #1e40af;
+            border-bottom: 2px solid #0055aa;
         }
-        
+
         td {
             padding: 14px 16px;
-            border-bottom: 1px solid #f1f5f9;
-            vertical-align: top;
+            border-bottom: 1px solid #f0f0f0;
         }
-        
+
         tbody tr:hover {
-            background: #f8fafc;
+            background: #f8f9fa;
         }
-        
+
         tbody tr:nth-child(even) {
-            background: #f8fafc;
+            background: #f8f9fa;
         }
-        
+
         .badge {
             display: inline-block;
             padding: 6px 14px;
@@ -222,103 +212,89 @@
             font-weight: 600;
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: #dbeafe;
-            color: #0c4a6e;
+            background: #e8f2ff;
+            color: #0066cc;
         }
-        
+
         .no-results {
             text-align: center;
             padding: 60px 40px;
-            color: #94a3b8;
+            color: #999;
             font-size: 16px;
         }
-        
+
         .loading {
             text-align: center;
             padding: 40px;
-            color: #64748b;
+            color: #666;
         }
-        
+
         .spinner {
-            border: 4px solid #e2e8f0;
-            border-top: 4px solid #3b82f6;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0066cc;
             border-radius: 50%;
             width: 30px;
             height: 30px;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 15px;
         }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         footer {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: #cbd5e1;
+            background: #1a1a1a;
+            color: #999;
             text-align: center;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 10px;
             font-size: 12px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
-        
+
         footer p {
             margin: 0;
         }
-        
+
         .error-box {
-            background: #fee2e2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             display: none;
         }
-        
+
         .error-box.show {
             display: block;
         }
-        
+
         @media (max-width: 768px) {
             header {
                 padding: 25px;
-                text-align: center;
             }
-            
+
             header h1 {
                 font-size: 26px;
             }
-            
+
             .btn-voltar {
                 position: static;
                 display: block;
                 margin-bottom: 15px;
             }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            table {
-                font-size: 12px;
-            }
-            
-            th, td {
-                padding: 10px 8px;
-            }
-            
+
             .controls {
                 flex-direction: column;
             }
-            
+
             .search-box {
                 width: 100%;
             }
-            
+
             .btn-reload {
                 width: 100%;
             }
@@ -330,21 +306,21 @@
         <header>
             <a href="index.html" class="btn-voltar">← Voltar</a>
             <h1>📋 Metas Qualitativas</h1>
-            <p>Acompanhamento em tempo real das metas qualitativas do contrato</p>
+            <p>Acompanhamento em tempo real das metas qualitativas</p>
         </header>
-        
+
         <div class="content">
             <div class="error-box" id="errorBox"></div>
-            
+
             <div class="info-box">
-                <p>📊 Os dados abaixo são carregados em tempo real diretamente da planilha Google Sheets. Última atualização: <strong id="updateTime">--:--</strong></p>
+                <p>📊 Os dados abaixo são carregados em tempo real. Última atualização: <strong id="updateTime">--:--</strong></p>
             </div>
-            
+
             <div class="controls">
-                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Pesquisar meta qualitativa...">
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Pesquisar meta...">
                 <button class="btn-reload" id="reloadBtn">🔄 Atualizar</button>
             </div>
-            
+
             <div class="stats" id="stats">
                 <div class="stat-card">
                     <h3 id="totalMetas">0</h3>
@@ -359,7 +335,7 @@
                     <p>Verificação Mensal</p>
                 </div>
             </div>
-            
+
             <div class="table-wrapper">
                 <table id="tabela">
                     <thead>
@@ -376,43 +352,43 @@
                         <tr>
                             <td colspan="6" class="loading">
                                 <div class="spinner"></div>
-                                Carregando dados da planilha...
+                                Carregando dados...
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
         <footer>
-            <p>📋 Metas Qualitativas | Contrato de Gestão FUABC-SCS | Atualizado em <span id="dataAtualizacao">--/--/----</span></p>
+            <p>📋 Metas Qualitativas | Contrato de Gestão FUABC-SCS</p>
         </footer>
     </div>
-    
+
     <script>
         const SHEET_ID = '1Mq96qBxJpnYeIt-ZGNdNtpv4uK1YpfW-Bnofw82-jPU';
         let dadosOriginais = [];
-        
+
         async function carregarDados() {
             const errorBox = document.getElementById('errorBox');
             errorBox.classList.remove('show');
-            
+
             try {
                 const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
                 const response = await fetch(url);
                 const csv = await response.text();
-                
+
                 const linhas = csv.split('\n');
                 dadosOriginais = [];
-                
+
                 for (let i = 1; i < linhas.length; i++) {
                     const linha = linhas[i].trim();
                     if (!linha) continue;
-                    
+
                     const valores = [];
                     let valor = '';
                     let dentroDeAspas = false;
-                    
+
                     for (let j = 0; j < linha.length; j++) {
                         const char = linha[j];
                         if (char === '"') {
@@ -425,7 +401,7 @@
                         }
                     }
                     valores.push(valor.replace(/^"|"$/g, ''));
-                    
+
                     if (valores[0]) {
                         dadosOriginais.push({
                             item: valores[0] || '',
@@ -434,31 +410,27 @@
                             meta_mensal: valores[3] || '',
                             conteudo: valores[4] || '',
                             periodicidade: valores[5] || '',
-                            observacoes: valores[6] || ''
                         });
                     }
                 }
-                
+
                 atualizarTabela(dadosOriginais);
                 atualizarHora();
-                atualizarData();
-                
+
             } catch (error) {
-                console.error('Erro:', error);
-                errorBox.textContent = '❌ Erro ao carregar dados. Verifique sua conexão ou tente novamente.';
+                errorBox.textContent = '❌ Erro ao carregar dados.';
                 errorBox.classList.add('show');
-                document.getElementById('tabelaBody').innerHTML = '<tr><td colspan="6" class="no-results">Erro ao carregar dados</td></tr>';
             }
         }
-        
+
         function atualizarTabela(dados) {
             const tbody = document.getElementById('tabelaBody');
-            
+
             if (dados.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="6" class="no-results">Nenhuma meta encontrada</td></tr>';
                 return;
             }
-            
+
             tbody.innerHTML = dados.map(item => `
                 <tr>
                     <td><strong>${item.item}</strong></td>
@@ -469,37 +441,28 @@
                     <td><small>${item.conteudo}</small></td>
                 </tr>
             `).join('');
-            
+
             document.getElementById('totalMetas').textContent = dados.length;
             document.getElementById('totalTrimestral').textContent = dados.filter(d => d.periodicidade.includes('Trimestral')).length;
             document.getElementById('totalMensal').textContent = dados.filter(d => d.periodicidade.includes('Mensal')).length;
         }
-        
+
         function atualizarHora() {
             const agora = new Date();
             const horas = String(agora.getHours()).padStart(2, '0');
             const minutos = String(agora.getMinutes()).padStart(2, '0');
             document.getElementById('updateTime').textContent = `${horas}:${minutos}`;
         }
-        
-        function atualizarData() {
-            const hoje = new Date();
-            const dia = String(hoje.getDate()).padStart(2, '0');
-            const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-            const ano = hoje.getFullYear();
-            document.getElementById('dataAtualizacao').textContent = `${dia}/${mes}/${ano}`;
-        }
-        
+
         document.getElementById('searchBox').addEventListener('keyup', (e) => {
             const termo = e.target.value.toLowerCase();
-            const filtrados = dadosOriginais.filter(item => 
+            const filtrados = dadosOriginais.filter(item =>
                 item.descricao.toLowerCase().includes(termo) ||
-                item.conteudo.toLowerCase().includes(termo) ||
-                item.item.includes(termo)
+                item.conteudo.toLowerCase().includes(termo)
             );
             atualizarTabela(filtrados);
         });
-        
+
         document.getElementById('reloadBtn').addEventListener('click', carregarDados);
         carregarDados();
         setInterval(carregarDados, 300000);
