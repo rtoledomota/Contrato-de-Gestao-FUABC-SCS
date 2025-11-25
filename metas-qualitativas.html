@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas Qualitativas - FUABC-SCS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #003d5c 0%, #1a5f7a 50%, #2d7a8f 100%); min-height: 100vh; padding: 30px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: white; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); text-align: center; }
+        .header h1 { color: #1a5f7a; font-size: 32px; margin-bottom: 10px; }
+        .header p { color: #666; font-size: 16px; }
+        .nav { background: white; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .nav a { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; color: white; background: #1a5f7a; }
+        .nav a.ativo { background: #1db384; }
+        .nav a.home { background: #6cc24a; }
+        .nav a:hover { transform: translateY(-2px); }
+        .content { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        .section h2 { color: #1a5f7a; font-size: 24px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #1db384; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th { background: linear-gradient(135deg, #1db384 0%, #2e9d5e 100%); color: white; padding: 15px; text-align: left; font-weight: 600; }
+        td { padding: 12px 15px; border-bottom: 1px solid #e0e0e0; }
+        tbody tr:hover { background: #f5f5f5; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge.em-andamento { background: #fff3cd; color: #856404; }
+        .badge.concluida { background: #d4edda; color: #155724; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #666; font-size: 12px; }
+        @media (max-width: 768px) { .header h1 { font-size: 24px; } .nav { flex-direction: column; } .nav a { width: 100%; text-align: center; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✅ Metas Qualitativas</h1>
+            <p>Contrato de Gestão FUABC-SCS</p>
+        </div>
+        
+        <div class="nav">
+            <a href="index.html" class="home">🏠 Home</a>
+            <a href="metas-qualitativas.html" class="ativo">✅ Qualitativas</a>
+            <a href="metas-quantitativas.html">📊 Quantitativas</a>
+            <a href="indicadores.html">📈 Indicadores</a>
+            <a href="acompanhamento.html">📆 Acompanhamento</a>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>✅ Metas Qualitativas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meta</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Melhorar Atendimento</td>
+                            <td>Aumentar qualidade do atendimento ao paciente</td>
+                            <td><span class="badge em-andamento">Em andamento</span></td>
+                            <td>Gestão</td>
+                        </tr>
+                        <tr>
+                            <td>Reduzir Fila de Espera</td>
+                            <td>Diminuir tempo de espera em 30%</td>
+                            <td><span class="badge concluida">Concluída</span></td>
+                            <td>Operacional</td>
+                        </tr>
+                        <tr>
+                            <td>Capacitar Equipe</td>
+                            <td>Treinar 100% da equipe em protocolos</td>
+                            <td><span class="badge em-andamento">Em andamento</span></td>
+                            <td>RH</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="footer">
+                <p>🔄 Última atualização: 25/11/2025 às 14:19</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
