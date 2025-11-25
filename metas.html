@@ -93,7 +93,7 @@
         }
         
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .section h2 {
@@ -116,6 +116,7 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            border: none;
         }
         
         td {
@@ -123,16 +124,21 @@
             border-bottom: 1px solid #e0e0e0;
         }
         
-        tr:hover {
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
             background: #f5f5f5;
         }
         
         .badge {
             display: inline-block;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
+            white-space: nowrap;
         }
         
         .badge.em-andamento {
@@ -157,10 +163,11 @@
         
         .progress-bar {
             width: 100%;
-            height: 20px;
+            height: 24px;
             background: #e0e0e0;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
+            position: relative;
         }
         
         .progress-fill {
@@ -170,8 +177,9 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 40px;
         }
         
         .footer {
@@ -181,6 +189,12 @@
             border-top: 1px solid #e0e0e0;
             color: #666;
             font-size: 12px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
         }
         
         @media (max-width: 768px) {
@@ -198,11 +212,11 @@
             }
             
             table {
-                font-size: 14px;
+                font-size: 13px;
             }
             
             th, td {
-                padding: 10px;
+                padding: 8px 10px;
             }
         }
     </style>
@@ -228,7 +242,7 @@
                         <tr><th>ITEM</th><th>DESCRIÇÃO</th><th>Meta Anual (média)</th><th>Meta Mensal</th><th>Conteúdo</th><th>Periodicidade da verificação</th>
                         </tr>
                     </thead>
-                    <tbody><tr><td>1</td><td>PROPORÇÃO DE GESTANTES COM 7 OU MAIS CONSULTAS DE PRÉ NATAL </td><td><span class="badge em-andamento">0,7</span></td><td>0,058</td><td>Total de gestantes com 07 ou mais consultas de Pré-Natal/ total de gestantes e puérperas das Unidades nos últimos 04 meses</td><td>Trimestral</td></tr><tr><td>2</td><td>NÚMERO DE ATENDIMENTOS DE PRIMEIRA CONSULTA ODONTOLOGICA PROGRAMATICA REALIZADOS NA UBS POR HABITANTE</td><td><span class="badge em-andamento">0,3</span></td><td>0,3</td><td>Número de atendimentos de primeira consulta odontológica programática *100/ população cadastrada</td><td>Mensal</td></tr><tr><td>3</td><td>PREENCHIMENTO DE PRONTUÁRIOS NOS SEGUINTES ASPECTOS: LEGIBILIDADE, ASSINATURA, CID, EXAMES, EVOLUÇÃO E PRESCRIÇÃO.</td><td><span class="badge em-andamento">0,6</span></td><td>0,6</td><td>Total de prontuários conformes/total da amostra prontuários</td><td>Mensal</td></tr><tr><td>4</td><td>REALIZAR A CLASSIFICAÇÃO DE RISCO NA UPA/SABIN DE ACORDO COM O PROTOCOLO DE AVALIAÇÃO DE RISCO</td><td><span class="badge em-andamento">0,85</span></td><td>0,85</td><td>Total de fichas classificadas/fichas totais</td><td>Mensal</td></tr><tr><td>5</td><td>ENTREGA DE RELATÓRIO COMENTADO DAS RECLAMAÇÕES RECEBIDAS ATRAVÉS DAS DIFERENTES AUDITORIAS, SAU E OUVIDORIA E DAS PROVIDÊNCIAS ADOTADAS</td><td><span class="badge em-andamento">100%</span></td><td>100%</td><td>Análise comentada das Reclamações Recebidas e Providências Adotadas</td><td>Trimestral</td></tr><tr><td>6</td><td>PONTUALIDADE NA ENTREGA DOS RELATÓRIOS MENSAIS DE PRESTAÇÃO DE CONTAS FINANCEIRAS</td><td><span class="badge em-andamento">100%</span></td><td>100%</td><td>Conjunto de relatórios e documentos entregues até o dia 30 do mês subsequente a execução das atividades</td><td>Mensal</td></tr><tr><td>7</td><td>NÚMERO DE PROCEDIMENTOS DE COLETA DE MATERIAL CITOPATOLÓGICO DO COLO DO ÚTERO REALIZADOS NAS UBS EM RELAÇÃO AO TOTAL DE MULHERES ENTRE 25 E 64 ANOS DE IDADE</td><td><span class="badge em-andamento">0,42</span></td><td>0,035</td><td>Procedimentos de coleta de material cito patológico do colo do útero em mulheres na faixa etária entre 25 e 64 anos realizados na UBS/total de mulheres cadastradas na mesma faixa etária</td><td>Trimestral</td></tr><tr><td>8</td><td>TAXA DE OCUPAÇÃO UTI ADULTO COMPLEXO HOSPITALAR</td><td><span class="badge em-andamento">0,7</span></td><td>0,7</td><td>Número de pacientes internados dia/ número total de leitos</td><td>Mensal</td></tr><tr><td>9</td><td>TAXA DE OCUPAÇÃO UTI ADULTO SABIN</td><td><span class="badge em-andamento">0,7</span></td><td>0,7</td><td>Número de pacientes internados dia/ número total de leitos</td><td>Mensal</td></tr><tr><td>10</td><td>REALIZAR AÇÕES EDUCATIVAS DO SOS CIDADÃO 156</td><td><span class="badge em-andamento">6</span></td><td>0,5</td><td>Realizar ações educativas e treinamentos junto a população e equipe da rede de saúde do Município</td><td>Trimestral</td></tr><tr><td>11</td><td>TAXA DE MORTALIDADE INFANTIL</td><td><span class="badge em-andamento">9</span></td><td>9</td><td>Número de mortes/1000 nascimentos</td><td>Mensal</td></tr><tr><td>12</td><td>PROPORÇÃO DE CRIANÇAS COM ATÉ 12 MESES DE IDADE INSCRITAS NAS UBS COM CALENDÁRIO VACINAL COMPLETO PARA A IDADE</td><td><span class="badge em-andamento">70%</span></td><td>6%</td><td>Crianças Vacinadas/Crianças Cadastradas</td><td>Trimestral</td></tr><tr><td>13</td><td>PROPORÇÃO DE REGISTRO DE ÓBITOS COM CAUSA BÁSICA DEFINIDA</td><td><span class="badge em-andamento">0,95</span></td><td>0,079</td><td>Proporção de registros com causa definida/número total de registros</td><td>Trimestral</td></tr><tr><td>14</td><td>NÚMERO DE ATENDIMENTOS INDIVIDUAIS REALIZADOS POR PROFISSIONAIS DA EQUIPE NASF À POPULAÇÃO CADASTRADA NAS EQUIPES DE SAÚDE DA FAMILIA VINCULADAS AO NASF</td><td><span class="badge em-andamento">20</span></td><td>1,67</td><td>Número de atendimentos individuais registrados por profissional do NASF/número de profissionais do NASF a cada 40 horas</td><td>Trimestral</td></tr>
+                    <tbody><tr><td>1</td><td>PROPORÇÃO DE GESTANTES COM 7 OU MAIS CONSULTAS DE PRÉ NATAL </td><td>0,7</td><td>0,058</td><td>Total de gestantes com 07 ou mais consultas de Pré-Natal/ total de gestantes e puérperas das Unidades nos últimos 04 meses</td><td>Trimestral</td></tr><tr><td>2</td><td>NÚMERO DE ATENDIMENTOS DE PRIMEIRA CONSULTA ODONTOLOGICA PROGRAMATICA REALIZADOS NA UBS POR HABITANTE</td><td>0,3</td><td>0,3</td><td>Número de atendimentos de primeira consulta odontológica programática *100/ população cadastrada</td><td>Mensal</td></tr><tr><td>3</td><td>PREENCHIMENTO DE PRONTUÁRIOS NOS SEGUINTES ASPECTOS: LEGIBILIDADE, ASSINATURA, CID, EXAMES, EVOLUÇÃO E PRESCRIÇÃO.</td><td>0,6</td><td>0,6</td><td>Total de prontuários conformes/total da amostra prontuários</td><td>Mensal</td></tr><tr><td>4</td><td>REALIZAR A CLASSIFICAÇÃO DE RISCO NA UPA/SABIN DE ACORDO COM O PROTOCOLO DE AVALIAÇÃO DE RISCO</td><td>0,85</td><td>0,85</td><td>Total de fichas classificadas/fichas totais</td><td>Mensal</td></tr><tr><td>5</td><td>ENTREGA DE RELATÓRIO COMENTADO DAS RECLAMAÇÕES RECEBIDAS ATRAVÉS DAS DIFERENTES AUDITORIAS, SAU E OUVIDORIA E DAS PROVIDÊNCIAS ADOTADAS</td><td>100%</td><td>100%</td><td>Análise comentada das Reclamações Recebidas e Providências Adotadas</td><td>Trimestral</td></tr><tr><td>6</td><td>PONTUALIDADE NA ENTREGA DOS RELATÓRIOS MENSAIS DE PRESTAÇÃO DE CONTAS FINANCEIRAS</td><td>100%</td><td>100%</td><td>Conjunto de relatórios e documentos entregues até o dia 30 do mês subsequente a execução das atividades</td><td>Mensal</td></tr><tr><td>7</td><td>NÚMERO DE PROCEDIMENTOS DE COLETA DE MATERIAL CITOPATOLÓGICO DO COLO DO ÚTERO REALIZADOS NAS UBS EM RELAÇÃO AO TOTAL DE MULHERES ENTRE 25 E 64 ANOS DE IDADE</td><td>0,42</td><td>0,035</td><td>Procedimentos de coleta de material cito patológico do colo do útero em mulheres na faixa etária entre 25 e 64 anos realizados na UBS/total de mulheres cadastradas na mesma faixa etária</td><td>Trimestral</td></tr><tr><td>8</td><td>TAXA DE OCUPAÇÃO UTI ADULTO COMPLEXO HOSPITALAR</td><td>0,7</td><td>0,7</td><td>Número de pacientes internados dia/ número total de leitos</td><td>Mensal</td></tr><tr><td>9</td><td>TAXA DE OCUPAÇÃO UTI ADULTO SABIN</td><td>0,7</td><td>0,7</td><td>Número de pacientes internados dia/ número total de leitos</td><td>Mensal</td></tr><tr><td>10</td><td>REALIZAR AÇÕES EDUCATIVAS DO SOS CIDADÃO 156</td><td>6</td><td>0,5</td><td>Realizar ações educativas e treinamentos junto a população e equipe da rede de saúde do Município</td><td>Trimestral</td></tr><tr><td>11</td><td>TAXA DE MORTALIDADE INFANTIL</td><td>9</td><td>9</td><td>Número de mortes/1000 nascimentos</td><td>Mensal</td></tr><tr><td>12</td><td>PROPORÇÃO DE CRIANÇAS COM ATÉ 12 MESES DE IDADE INSCRITAS NAS UBS COM CALENDÁRIO VACINAL COMPLETO PARA A IDADE</td><td>70%</td><td>6%</td><td>Crianças Vacinadas/Crianças Cadastradas</td><td>Trimestral</td></tr><tr><td>13</td><td>PROPORÇÃO DE REGISTRO DE ÓBITOS COM CAUSA BÁSICA DEFINIDA</td><td>0,95</td><td>0,079</td><td>Proporção de registros com causa definida/número total de registros</td><td>Trimestral</td></tr><tr><td>14</td><td>NÚMERO DE ATENDIMENTOS INDIVIDUAIS REALIZADOS POR PROFISSIONAIS DA EQUIPE NASF À POPULAÇÃO CADASTRADA NAS EQUIPES DE SAÚDE DA FAMILIA VINCULADAS AO NASF</td><td>20</td><td>1,67</td><td>Número de atendimentos individuais registrados por profissional do NASF/número de profissionais do NASF a cada 40 horas</td><td>Trimestral</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -258,8 +272,8 @@
             </div>
             
             <div class="footer">
-                <p>🔄 Última atualização: 25/11/2025 às 14:11</p>
-                <p>Dados obtidos da planilha de Contrato de Gestão</p>
+                <p>🔄 Última atualização: 25/11/2025 às 14:13</p>
+                <p>Dados da planilha de Contrato de Gestão FUABC-SCS</p>
             </div>
         </div>
     </div>
