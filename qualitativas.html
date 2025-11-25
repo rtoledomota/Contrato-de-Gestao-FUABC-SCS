@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metas Qualitativas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -20,101 +21,213 @@
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             overflow: hidden;
         }
         
         .header {
             background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
-            padding: 30px;
-            border-bottom: 4px solid #005fa3;
+            padding: 40px;
+            text-align: center;
         }
         
         .header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
         
         .header p {
-            font-size: 14px;
+            font-size: 16px;
             opacity: 0.9;
-        }
-        
-        .content {
-            padding: 30px;
         }
         
         .btn-voltar {
             display: inline-block;
-            background: white;
-            color: #0066cc;
+            background: rgba(255,255,255,0.2);
+            color: white;
             padding: 10px 20px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 12px;
+            font-size: 14px;
             margin-bottom: 20px;
             transition: all 0.3s;
+            border: 2px solid white;
         }
         
         .btn-voltar:hover {
-            background: #f0f7ff;
-            transform: translateX(-3px);
+            background: white;
+            color: #0066cc;
+        }
+        
+        .content {
+            padding: 40px;
         }
         
         .info-box {
-            background: #f0f7ff;
-            border-left: 4px solid #0066cc;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+            border-left: 5px solid #0066cc;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
         }
         
         .info-box p {
             color: #0066cc;
-            font-size: 13px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.8;
         }
         
-        .spreadsheet-link {
-            display: inline-block;
-            background: #0066cc;
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
-            padding: 15px 30px;
-            border-radius: 6px;
+        }
+        
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid #0055aa;
+        }
+        
+        th:last-child {
+            border-right: none;
+        }
+        
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        td:last-child {
+            border-right: none;
+        }
+        
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .status-ok {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-atencao {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-critico {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0066cc 0%, #0088ff 100%);
+            border-radius: 4px;
+        }
+        
+        .btn-abrir-planilha {
+            display: inline-block;
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             margin-top: 20px;
             transition: all 0.3s;
         }
         
-        .spreadsheet-link:hover {
-            background: #0055aa;
+        .btn-abrir-planilha:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
         }
         
         .footer {
             background: #f5f5f5;
-            padding: 20px 30px;
+            padding: 20px 40px;
             text-align: center;
             font-size: 12px;
             color: #666;
             border-top: 1px solid #e0e0e0;
         }
         
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
         @media (max-width: 768px) {
             .header {
-                padding: 20px;
+                padding: 25px;
             }
             
             .header h1 {
-                font-size: 20px;
+                font-size: 24px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 10px;
             }
         }
     </style>
@@ -129,17 +242,90 @@
         
         <div class="content">
             <div class="info-box">
-                <p>💡 Acesse a planilha Google Sheets abaixo para visualizar e editar os dados de metas qualitativas.</p>
+                <p>📊 Os dados são atualizados automaticamente da planilha Google Sheets a cada 30 segundos. Clique no botão abaixo para editar os dados diretamente na planilha.</p>
             </div>
             
-            <a href="https://docs.google.com/spreadsheets/d/1Mq96qBxJpnYeIt-ZGNdNtpv4uK1YpfW-Bnofw82-jPU" target="_blank" class="spreadsheet-link">
-                📊 Abrir Planilha Google Sheets
+            <div id="dados-container" class="table-container">
+                <div class="loading">⏳ Carregando dados...</div>
+            </div>
+            
+            <a href="https://docs.google.com/spreadsheets/d/1Mq96qBxJpnYeIt-ZGNdNtpv4uK1YpfW-Bnofw82-jPU" target="_blank" class="btn-abrir-planilha">
+                📊 Editar Planilha Google Sheets
             </a>
         </div>
         
         <div class="footer">
-            <p>📊 Metas Qualitativas | Atualizado em 25/11/2025</p>
+            <p>📋 Metas Qualitativas | Dados atualizados em tempo real</p>
         </div>
     </div>
+    
+    <script>
+        // ID da planilha
+        const SHEET_ID = '1Mq96qBxJpnYeIt-ZGNdNtpv4uK1YpfW-Bnofw82-jPU';
+        const API_KEY = 'AIzaSyDummyKeyChangeThis'; // Substitua por sua chave API
+        
+        async function carregarDados() {
+            const container = document.getElementById('dados-container');
+            
+            try {
+                // URL da Google Sheets API
+                const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (!data.values || data.values.length === 0) {
+                    container.innerHTML = '<div class="error">❌ Nenhum dado encontrado na planilha</div>';
+                    return;
+                }
+                
+                // Processar dados
+                const headers = data.values[0];
+                const rows = data.values.slice(1);
+                
+                let html = '<table><thead><tr>';
+                headers.forEach(header => {
+                    html += `<th>${header || ''}</th>`;
+                });
+                html += '</tr></thead><tbody>';
+                
+                rows.forEach(row => {
+                    if (row.length > 0 && row[0]) { // Pular linhas vazias
+                        html += '<tr>';
+                        row.forEach((cell, idx) => {
+                            let cellContent = cell || '';
+                            
+                            // Formatar coluna de status
+                            if (idx === row.length - 1) { // Última coluna como status
+                                if (cellContent.toLowerCase().includes('ok') || cellContent.toLowerCase().includes('ativo')) {
+                                    cellContent = `<span class="status-badge status-ok">✅ ${cellContent}</span>`;
+                                } else if (cellContent.toLowerCase().includes('atenção')) {
+                                    cellContent = `<span class="status-badge status-atencao">⚠️ ${cellContent}</span>`;
+                                } else if (cellContent.toLowerCase().includes('crítico')) {
+                                    cellContent = `<span class="status-badge status-critico">❌ ${cellContent}</span>`;
+                                }
+                            }
+                            
+                            html += `<td>${cellContent}</td>`;
+                        });
+                        html += '</tr>';
+                    }
+                });
+                
+                html += '</tbody></table>';
+                container.innerHTML = html;
+                
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                container.innerHTML = `<div class="error">❌ Erro ao carregar dados: ${error.message}</div>`;
+            }
+        }
+        
+        // Carregar dados ao abrir página
+        carregarDados();
+        
+        // Atualizar a cada 30 segundos
+        setInterval(carregarDados, 30000);
+    </script>
 </body>
 </html>
