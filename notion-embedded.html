@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Gestão FUABC-SCS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            padding: 40px 30px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1a5f7a;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #1db384, #6cc24a);
+            margin: 25px auto;
+            border-radius: 2px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a5f7a;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .buttons-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 130px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-text {
+            font-size: 13px;
+            line-height: 1.3;
+        }
+        
+        .btn.qualitativas {
+            background: linear-gradient(135deg, #1db384 0%, #2e9d5e 100%);
+            box-shadow: 0 2px 8px rgba(29, 179, 132, 0.25);
+        }
+        
+        .btn.qualitativas:hover {
+            background: linear-gradient(135deg, #16915e 0%, #228044 100%);
+        }
+        
+        .btn.quantitativas {
+            background: linear-gradient(135deg, #6cc24a 0%, #5db333 100%);
+            box-shadow: 0 2px 8px rgba(108, 194, 74, 0.25);
+        }
+        
+        .btn.quantitativas:hover {
+            background: linear-gradient(135deg, #5aa928 0%, #4a9520 100%);
+        }
+        
+        .btn.indicadores {
+            background: linear-gradient(135deg, #00a8b5 0%, #00d4d9 100%);
+            box-shadow: 0 2px 8px rgba(0, 168, 181, 0.25);
+        }
+        
+        .btn.indicadores:hover {
+            background: linear-gradient(135deg, #007d87 0%, #009aab 100%);
+        }
+        
+        .btn.acompanhamento {
+            background: linear-gradient(135deg, #1a5f7a 0%, #2d7a8f 100%);
+            box-shadow: 0 2px 8px rgba(26, 95, 122, 0.25);
+        }
+        
+        .btn.acompanhamento:hover {
+            background: linear-gradient(135deg, #0f3e52 0%, #1a5f7a 100%);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 11px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📋</div>
+        
+        <h1>Contrato de Gestão FUABC-SCS</h1>
+        <p class="subtitle">Acompanhamento de Indicadores e Metas Contratuais</p>
+        
+        <div class="divider"></div>
+        
+        <div class="section-title">📊 Metas Contratuais</div>
+        <div class="buttons-section">
+            <a href="metas.html" class="btn qualitativas">
+                <div class="btn-icon">✅</div>
+                <div class="btn-text">Metas Qualitativas</div>
+            </a>
+            
+            <a href="metas.html" class="btn quantitativas">
+                <div class="btn-icon">📊</div>
+                <div class="btn-text">Metas Quantitativas</div>
+            </a>
+            
+            <a href="metas.html" class="btn indicadores">
+                <div class="btn-icon">📈</div>
+                <div class="btn-text">Indicadores de Monitoramento</div>
+            </a>
+        </div>
+        
+        <div class="section-title">📅 Acompanhamento Mensal</div>
+        <div class="buttons-section">
+            <a href="acompanhamento.html" class="btn acompanhamento">
+                <div class="btn-icon">📆</div>
+                <div class="btn-text">Acompanhamento de Metas</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>🔄 Dashboard Automático</p>
+            <p>Desenvolvido com Google Sheets + GitHub Pages</p>
+        </div>
+    </div>
+</body>
+</html>
