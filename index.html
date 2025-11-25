@@ -3,70 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrato de Gestão FUABC-SCS</title>
+    <title>Home - FUABC-SCS</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #003d5c 0%, #1a5f7a 50%, #2d7a8f 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .container { max-width: 900px; width: 100%; }
-        .card { background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); padding: 60px 40px; text-align: center; animation: slideUp 0.6s ease; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .logo { width: 120px; height: 120px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1db384 0%, #6cc24a 100%); border-radius: 16px; font-size: 70px; box-shadow: 0 8px 24px rgba(29, 179, 132, 0.3); }
-        .header { margin-bottom: 40px; }
-        .header h1 { font-size: 36px; color: #1a5f7a; margin-bottom: 10px; font-weight: 700; }
-        .header p { font-size: 16px; color: #666; line-height: 1.6; }
-        .divider { width: 60px; height: 4px; background: linear-gradient(90deg, #1db384, #6cc24a); margin: 30px auto; border-radius: 2px; }
-        .section-title { font-size: 18px; font-weight: 700; color: #1a5f7a; margin-top: 40px; margin-bottom: 20px; text-align: left; padding-bottom: 10px; border-bottom: 2px solid #e0e0e0; }
-        .buttons-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px; color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; border: none; cursor: pointer; min-height: 150px; }
-        .btn:hover { transform: translateY(-8px); }
-        .btn-icon { font-size: 32px; margin-bottom: 10px; }
-        .btn-text { font-size: 14px; line-height: 1.4; }
-        .btn.qualitativas { background: linear-gradient(135deg, #1db384 0%, #2e9d5e 100%); box-shadow: 0 4px 12px rgba(29, 179, 132, 0.3); }
-        .btn.qualitativas:hover { background: linear-gradient(135deg, #16915e 0%, #228044 100%); }
-        .btn.quantitativas { background: linear-gradient(135deg, #6cc24a 0%, #5db333 100%); box-shadow: 0 4px 12px rgba(108, 194, 74, 0.3); }
-        .btn.quantitativas:hover { background: linear-gradient(135deg, #5aa928 0%, #4a9520 100%); }
-        .btn.indicadores { background: linear-gradient(135deg, #00a8b5 0%, #00d4d9 100%); box-shadow: 0 4px 12px rgba(0, 168, 181, 0.3); }
-        .btn.indicadores:hover { background: linear-gradient(135deg, #007d87 0%, #009aab 100%); }
-        .btn.acompanhamento { background: linear-gradient(135deg, #1a5f7a 0%, #2d7a8f 100%); box-shadow: 0 4px 12px rgba(26, 95, 122, 0.3); }
-        .btn.acompanhamento:hover { background: linear-gradient(135deg, #0f3e52 0%, #1a5f7a 100%); }
-        .footer { margin-top: 40px; padding-top: 30px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #999; }
-        @media (max-width: 768px) { .card { padding: 40px 20px; } .header h1 { font-size: 28px; } .buttons-section { grid-template-columns: 1fr; } .logo { width: 90px; height: 90px; font-size: 50px; } }
+        body { font-family: Arial, sans-serif; background: #003d5c; color: #333; padding: 40px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 10px; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.2); }
+        h1 { color: #1a5f7a; margin-bottom: 30px; text-align: center; }
+        .menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        a { display: block; padding: 20px; background: #1db384; color: white; text-decoration: none; border-radius: 8px; text-align: center; font-weight: bold; transition: 0.3s; }
+        a:hover { background: #16915e; }
+        .footer { text-align: center; margin-top: 40px; color: #666; font-size: 12px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <div class="logo">⚕️</div>
-            <div class="header">
-                <h1>Contrato de Gestão FUABC-SCS</h1>
-                <p>Acompanhamento de Indicadores e Metas Contratuais</p>
-            </div>
-            <div class="divider"></div>
-            <div class="section-title">📊 Metas Contratuais</div>
-            <div class="buttons-section">
-                <a href="metas-qualitativas.html" class="btn qualitativas">
-                    <div class="btn-icon">✅</div>
-                    <div class="btn-text">Metas Qualitativas</div>
-                </a>
-                <a href="metas-quantitativas.html" class="btn quantitativas">
-                    <div class="btn-icon">📊</div>
-                    <div class="btn-text">Metas Quantitativas</div>
-                </a>
-                <a href="indicadores.html" class="btn indicadores">
-                    <div class="btn-icon">📈</div>
-                    <div class="btn-text">Indicadores de Monitoramento</div>
-                </a>
-            </div>
-            <div class="section-title">📅 Acompanhamento</div>
-            <div class="buttons-section">
-                <a href="acompanhamento.html" class="btn acompanhamento">
-                    <div class="btn-icon">📆</div>
-                    <div class="btn-text">Acompanhamento de Metas</div>
-                </a>
-            </div>
-            <div class="footer">
-                <p>🔄 Dashboard Automático | Atualizado em 25/11/2025 às 14:23</p>
-            </div>
+        <h1>⚕️ Contrato de Gestão FUABC-SCS</h1>
+        
+        <div class="menu">
+            <a href="qualitativas.html">✅ Metas Qualitativas</a>
+            <a href="quantitativas.html">📊 Metas Quantitativas</a>
+            <a href="indicadores.html">📈 Indicadores</a>
+            <a href="acompanhamento.html">📆 Acompanhamento</a>
+        </div>
+        
+        <div class="footer">
+            <p>Dashboard de Metas e Indicadores</p>
+            <p>Atualizado em 25/11/2025 14:28</p>
         </div>
     </div>
 </body>
