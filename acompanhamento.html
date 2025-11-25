@@ -127,56 +127,6 @@
             background: #f5f5f5;
         }
         
-        .card {
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            border-left: 4px solid #00a8b5;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-        
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a5f7a;
-            margin-bottom: 10px;
-        }
-        
-        .card-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .card-item {
-            padding: 10px;
-            background: white;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .card-item-label {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 5px;
-        }
-        
-        .card-item-value {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a5f7a;
-        }
-        
-        .observations {
-            background: #f0f8ff;
-            border-left: 4px solid #00a8b5;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            color: #333;
-        }
-        
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -200,8 +150,12 @@
                 text-align: center;
             }
             
-            .card-row {
-                grid-template-columns: 1fr;
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 10px;
             }
         }
     </style>
@@ -222,10 +176,20 @@
         <div class="content">
             <div class="section">
                 <h2>📈 Acompanhamento Mensal</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mês</th>
+                            <th>Informação</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr><td>Período 1</td><td>Consultas médicas oftalmológicas - 3688</td></tr><tr><td>Período 2</td><td>Consultas médicas no Complexo Hospitalar - 8037</td></tr><tr><td>Período 3</td><td>Consultas de urgência (HMEAS/UPA) - 21634</td></tr><tr><td>Período 4</td><td>Consultas odontológicas na UPA - 468</td></tr><tr><td>Período 5</td><td>Procedimentos oftalmológicos com finalidade diagnóstica - 9511</td></tr><tr><td>Período 6</td><td>Procedimentos cirúrgicos oftalmológicos - 182</td></tr><tr><td>Período 7</td><td>Procedimentos cirúrgicos do Complexo Hospitalar - 500</td></tr><tr><td>Período 8</td><td>Atendimentos pré-hospitalares – SOS Cidadão - 1278</td></tr><tr><td>Período 9</td><td>Saídas hospitalares – Complexo Hospitalar - 595</td></tr><tr><td>Período 10</td><td>Saídas hospitalares – HMEAS - 432</td></tr><tr><td>Período 11</td><td>TOTAL PREVISTO/MÊS - 46 325</td></tr>
+                    </tbody>
+                </table>
             </div>
             
             <div class="footer">
-                <p>🔄 Última atualização: 25/11/2025 às 14:09</p>
+                <p>🔄 Última atualização: 25/11/2025 às 14:11</p>
                 <p>Dados obtidos da planilha de Contrato de Gestão</p>
             </div>
         </div>
