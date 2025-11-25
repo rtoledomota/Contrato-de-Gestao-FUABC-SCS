@@ -9,16 +9,69 @@
         body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
         .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .header { background: #1a5f7a; color: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
-        h1 { margin-bottom: 10px; }
+        h1 { margin-bottom: 10px; font-size: 28px; }
+        p { line-height: 1.6; color: #333; margin-bottom: 10px; }
         .nav { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
-        .nav button { padding: 10px 20px; background: #1a5f7a; color: white; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        .nav button.ativo { background: #6cc24a; }
-        .secao { display: none; }
-        .secao.ativo { display: block; }
-        h2 { color: #1a5f7a; margin: 20px 0 15px 0; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background: #1a5f7a; color: white; }
+        .nav button { 
+            padding: 12px 24px; 
+            background: #1a5f7a; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .nav button:hover { 
+            background: #0d3647; 
+            transform: translateY(-2px);
+        }
+        .nav button.ativo { 
+            background: #6cc24a; 
+        }
+        .secao { 
+            display: none; 
+            margin-top: 30px;
+            animation: fadeIn 0.3s;
+        }
+        .secao.ativo { 
+            display: block; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 { 
+            color: #1a5f7a; 
+            margin: 20px 0 20px 0; 
+            font-size: 24px;
+            border-bottom: 2px solid #1a5f7a;
+            padding-bottom: 10px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th { 
+            background: #1a5f7a; 
+            color: white; 
+            font-weight: bold;
+            padding: 15px;
+            text-align: left;
+        }
+        td { 
+            padding: 12px 15px; 
+            border-bottom: 1px solid #ddd; 
+        }
+        tr:nth-child(even) { 
+            background: #f9f9f9; 
+        }
+        tr:hover { 
+            background: #e8f4f8; 
+        }
     </style>
 </head>
 <body>
@@ -29,31 +82,37 @@
         </div>
         
         <div class="nav">
-            <button class="ativo" onclick="mostrar('home')">Home</button>
-            <button onclick="mostrar('qual')">Qualitativas</button>
-            <button onclick="mostrar('quant')">Quantitativas</button>
-            <button onclick="mostrar('indic')">Indicadores</button>
-            <button onclick="mostrar('acomp')">Acompanhamento</button>
+            <button class="ativo" onclick="abrirSecao('home')">Home</button>
+            <button onclick="abrirSecao('qual')">Qualitativas</button>
+            <button onclick="abrirSecao('quant')">Quantitativas</button>
+            <button onclick="abrirSecao('indic')">Indicadores</button>
+            <button onclick="abrirSecao('acomp')">Acompanhamento</button>
         </div>
         
         <div id="home" class="secao ativo">
             <h2>Home</h2>
-            <p>Bem-vindo ao sistema de acompanhamento de metas e indicadores do Contrato de Gestao entre FUABC e SCS.</p>
+            <p>Bem-vindo ao sistema de acompanhamento de metas e indicadores do Contrato de Gestão entre FUABC e SCS.</p>
+            <p>Utilize os botões acima para navegar pelas diferentes seções de metas e indicadores.</p>
+            <p><strong>Clique em cada seção para visualizar os dados específicos.</strong></p>
         </div>
         
         <div id="qual" class="secao">
             <h2>Metas Qualitativas</h2>
             <table>
                 <thead>
-                    <tr><th>Item</th><th>Descricao</th><th>Meta Anual</th></tr>
+                    <tr>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Meta Anual</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>PROPORCAO DE GESTANTES COM 7 OU MAIS CONSULTAS DE PRE NATAL</td><td>0.7</td></tr>
-                    <tr><td>2</td><td>NUMERO DE ATENDIMENTOS DE PRIMEIRA CONSULTA ODONTOLOGICA</td><td>0.3</td></tr>
-                    <tr><td>3</td><td>PREENCHIMENTO DE PRONTUARIOS</td><td>0.6</td></tr>
-                    <tr><td>4</td><td>REALIZAR A CLASSIFICACAO DE RISCO NA UPA/SABIN</td><td>0.85</td></tr>
-                    <tr><td>5</td><td>ENTREGA DE RELATORIO COMENTADO DAS RECLAMACOES</td><td>100%</td></tr>
-                    <tr><td>6</td><td>PONTUALIDADE NA ENTREGA DOS RELATORIOS MENSAIS</td><td>100%</td></tr>
+                    <tr><td>1</td><td>PROPORÇÃO DE GESTANTES COM 7 OU MAIS CONSULTAS DE PRÉ NATAL</td><td>0.7</td></tr>
+                    <tr><td>2</td><td>NÚMERO DE ATENDIMENTOS DE PRIMEIRA CONSULTA ODONTOLÓGICA</td><td>0.3</td></tr>
+                    <tr><td>3</td><td>PREENCHIMENTO DE PRONTUÁRIOS</td><td>0.6</td></tr>
+                    <tr><td>4</td><td>REALIZAR A CLASSIFICAÇÃO DE RISCO NA UPA/SABIN</td><td>0.85</td></tr>
+                    <tr><td>5</td><td>ENTREGA DE RELATÓRIO COMENTADO DAS RECLAMAÇÕES</td><td>100%</td></tr>
+                    <tr><td>6</td><td>PONTUALIDADE NA ENTREGA DOS RELATÓRIOS MENSAIS</td><td>100%</td></tr>
                 </tbody>
             </table>
         </div>
@@ -62,16 +121,19 @@
             <h2>Metas Quantitativas</h2>
             <table>
                 <thead>
-                    <tr><th>Descricao</th><th>Meta Mensal</th></tr>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Meta Mensal</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>CONSULTAS MEDICAS</td><td>15000</td></tr>
-                    <tr><td>CONSULTAS DE PROF DE NIVEL SUP NAO MEDICOS</td><td>3700</td></tr>
-                    <tr><td>TOTAL ATENCAO BASICA</td><td>18700</td></tr>
-                    <tr><td>CONSULTAS MEDICAS ATENDE FACIL SAUDE</td><td>6100</td></tr>
-                    <tr><td>CONSULTAS MEDICAS CAISM</td><td>1000</td></tr>
-                    <tr><td>CONSULTAS MEDICAS CTNEN</td><td>2200</td></tr>
-                    <tr><td>PROCEDIMENTOS COM FINALIDADE DIAGNOSTICA</td><td>17168</td></tr>
+                    <tr><td>CONSULTAS MÉDICAS</td><td>15.000</td></tr>
+                    <tr><td>CONSULTAS DE PROF DE NÍVEL SUP NÃO MÉDICOS</td><td>3.700</td></tr>
+                    <tr><td>TOTAL ATENÇÃO BÁSICA</td><td>18.700</td></tr>
+                    <tr><td>CONSULTAS MÉDICAS - ATENDE FÁCIL SAÚDE</td><td>6.100</td></tr>
+                    <tr><td>CONSULTAS MÉDICAS - CAISM</td><td>1.000</td></tr>
+                    <tr><td>CONSULTAS MÉDICAS - CTNEN</td><td>2.200</td></tr>
+                    <tr><td>PROCEDIMENTOS COM FINALIDADE DIAGNÓSTICA</td><td>17.168</td></tr>
                 </tbody>
             </table>
         </div>
@@ -80,19 +142,22 @@
             <h2>Indicadores de Monitoramento</h2>
             <table>
                 <thead>
-                    <tr><th>Tipo de Atendimento</th><th>Meta Mensal</th></tr>
+                    <tr>
+                        <th>Tipo de Atendimento</th>
+                        <th>Meta Mensal</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Consultas medicas oftalmologicas</td><td>3688</td></tr>
-                    <tr><td>Consultas medicas no Complexo Hospitalar</td><td>8037</td></tr>
-                    <tr><td>Consultas de urgencia HMEAS/UPA</td><td>21634</td></tr>
-                    <tr><td>Consultas odontologicas na UPA</td><td>468</td></tr>
-                    <tr><td>Procedimentos oftalmologicos com finalidade diagnostica</td><td>9511</td></tr>
-                    <tr><td>Procedimentos cirurgicos oftalmologicos</td><td>182</td></tr>
-                    <tr><td>Procedimentos cirurgicos do Complexo Hospitalar</td><td>500</td></tr>
-                    <tr><td>Atendimentos pre-hospitalares SOS Cidadao</td><td>1278</td></tr>
-                    <tr><td>Saidas hospitalares Complexo Hospitalar</td><td>595</td></tr>
-                    <tr><td>Saidas hospitalares HMEAS</td><td>432</td></tr>
+                    <tr><td>Consultas médicas oftalmológicas</td><td>3.688</td></tr>
+                    <tr><td>Consultas médicas no Complexo Hospitalar</td><td>8.037</td></tr>
+                    <tr><td>Consultas de urgência HMEAS/UPA</td><td>21.634</td></tr>
+                    <tr><td>Consultas odontológicas na UPA</td><td>468</td></tr>
+                    <tr><td>Procedimentos oftalmológicos com finalidade diagnóstica</td><td>9.511</td></tr>
+                    <tr><td>Procedimentos cirúrgicos oftalmológicos</td><td>182</td></tr>
+                    <tr><td>Procedimentos cirúrgicos do Complexo Hospitalar</td><td>500</td></tr>
+                    <tr><td>Atendimentos pré-hospitalares - SOS Cidadão</td><td>1.278</td></tr>
+                    <tr><td>Saídas hospitalares - Complexo Hospitalar</td><td>595</td></tr>
+                    <tr><td>Saídas hospitalares - HMEAS</td><td>432</td></tr>
                 </tbody>
             </table>
         </div>
@@ -101,22 +166,42 @@
             <h2>Acompanhamento Mensal</h2>
             <table>
                 <thead>
-                    <tr><th>Mes</th><th>Status</th></tr>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Status</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr><td>Janeiro</td><td>Em dia</td></tr>
                     <tr><td>Fevereiro</td><td>Em dia</td></tr>
-                    <tr><td>Marco</td><td>Atraso menor</td></tr>
+                    <tr><td>Março</td><td>Atraso menor</td></tr>
+                    <tr><td>Abril</td><td>Pendente</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
     
     <script>
-        function mostrar(id) {
-            document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativo'));
-            document.querySelectorAll('.nav button').forEach(b => b.classList.remove('ativo'));
-            document.getElementById(id).classList.add('ativo');
+        function abrirSecao(idSecao) {
+            // Esconder todas as seções
+            var todasAsSecoes = document.querySelectorAll('.secao');
+            todasAsSecoes.forEach(function(secao) {
+                secao.classList.remove('ativo');
+            });
+            
+            // Remover classe ativo de todos os botões
+            var todosBotoes = document.querySelectorAll('.nav button');
+            todosBotoes.forEach(function(botao) {
+                botao.classList.remove('ativo');
+            });
+            
+            // Mostrar a seção selecionada
+            var secaoSelecionada = document.getElementById(idSecao);
+            if (secaoSelecionada) {
+                secaoSelecionada.classList.add('ativo');
+            }
+            
+            // Marcar o botão como ativo
             event.target.classList.add('ativo');
         }
     </script>
