@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indicadores de Monitoramento</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -34,6 +33,27 @@
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
+        }
+        
+        .btn-voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .btn-voltar:hover {
+            background: white;
+            color: #0066cc;
         }
         
         .header h1 {
@@ -45,25 +65,6 @@
         .header p {
             font-size: 16px;
             opacity: 0.9;
-        }
-        
-        .btn-voltar {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-            border: 2px solid white;
-        }
-        
-        .btn-voltar:hover {
-            background: white;
-            color: #0066cc;
         }
         
         .content {
@@ -84,6 +85,28 @@
             line-height: 1.8;
         }
         
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
         .table-container {
             overflow-x: auto;
             margin-bottom: 30px;
@@ -99,27 +122,19 @@
         thead {
             background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
+            position: sticky;
+            top: 0;
         }
         
         th {
             padding: 16px;
             text-align: left;
             font-weight: 600;
-            border-right: 1px solid #0055aa;
-        }
-        
-        th:last-child {
-            border-right: none;
         }
         
         td {
             padding: 14px 16px;
             border-bottom: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-        }
-        
-        td:last-child {
-            border-right: none;
         }
         
         tbody tr:hover {
@@ -130,59 +145,46 @@
             background: #f9f9f9;
         }
         
-        .status-badge {
+        .badge {
             display: inline-block;
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 12px;
-        }
-        
-        .status-ok {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .status-atencao {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-critico {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 5px 0;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #0066cc 0%, #0088ff 100%);
-            border-radius: 4px;
-        }
-        
-        .btn-abrir-planilha {
-            display: inline-block;
+            font-size: 13px;
             background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
             color: white;
-            padding: 14px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: all 0.3s;
         }
         
-        .btn-abrir-planilha:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+        }
+        
+        .stat-card h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
         }
         
         .footer {
@@ -192,21 +194,6 @@
             font-size: 12px;
             color: #666;
             border-top: 1px solid #e0e0e0;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-        
-        .error {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
         }
         
         @media (max-width: 768px) {
@@ -220,6 +207,13 @@
             
             .content {
                 padding: 20px;
+            }
+            
+            .btn-voltar {
+                position: static;
+                display: block;
+                margin-bottom: 15px;
+                text-align: center;
             }
             
             table {
@@ -242,90 +236,130 @@
         
         <div class="content">
             <div class="info-box">
-                <p>📊 Os dados são atualizados automaticamente da planilha Google Sheets a cada 30 segundos. Clique no botão abaixo para editar os dados diretamente na planilha.</p>
+                <p>📊 Abaixo estão listados todos os indicadores de monitoramento com suas respectivas metas mensais.</p>
             </div>
             
-            <div id="dados-container" class="table-container">
-                <div class="loading">⏳ Carregando dados...</div>
+            <div class="controls">
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Pesquisar indicador...">
             </div>
             
-            <a href="https://docs.google.com/spreadsheets/d/1B08b_eeaV4wK3A5yaCcWsuWPoEfYj0XwHOqrJ1houZE" target="_blank" class="btn-abrir-planilha">
-                📊 Editar Planilha Google Sheets
-            </a>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3 id="totalIndicadores">0</h3>
+                    <p>Total de Indicadores</p>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Atendimento</th>
+                            <th>Meta Mensal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaBody">
+                        <tr>
+                            <td colspan="2" class="no-results">Carregando dados...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <div class="footer">
-            <p>🎯 Indicadores de Monitoramento | Dados atualizados em tempo real</p>
+            <p>🎯 Indicadores de Monitoramento | Última atualização: <span id="dataAtualizacao">--/--/----</span></p>
         </div>
     </div>
     
     <script>
-        // ID da planilha
-        const SHEET_ID = '1B08b_eeaV4wK3A5yaCcWsuWPoEfYj0XwHOqrJ1houZE';
-        const API_KEY = 'AIzaSyDummyKeyChangeThis'; // Substitua por sua chave API
+        // DADOS DOS INDICADORES (CARREGADOS DA PLANILHA)
+        const dados = [
+    {
+        "tipo": "Consultas médicas oftalmológicas",
+        "meta": "3688"
+    },
+    {
+        "tipo": "Consultas médicas no Complexo Hospitalar",
+        "meta": "8037"
+    },
+    {
+        "tipo": "Consultas de urgência (HMEAS/UPA)",
+        "meta": "21634"
+    },
+    {
+        "tipo": "Consultas odontológicas na UPA",
+        "meta": "468"
+    },
+    {
+        "tipo": "Procedimentos oftalmológicos com finalidade diagnóstica",
+        "meta": "9511"
+    },
+    {
+        "tipo": "Procedimentos cirúrgicos oftalmológicos",
+        "meta": "182"
+    },
+    {
+        "tipo": "Procedimentos cirúrgicos do Complexo Hospitalar",
+        "meta": "500"
+    },
+    {
+        "tipo": "Atendimentos pré-hospitalares – SOS Cidadão",
+        "meta": "1278"
+    },
+    {
+        "tipo": "Saídas hospitalares – Complexo Hospitalar",
+        "meta": "595"
+    },
+    {
+        "tipo": "Saídas hospitalares – HMEAS",
+        "meta": "432"
+    },
+    {
+        "tipo": "TOTAL PREVISTO/MÊS",
+        "meta": "46 325"
+    },
+
+];
         
-        async function carregarDados() {
-            const container = document.getElementById('dados-container');
+        function renderTabela(filtrados = dados) {
+            const tbody = document.getElementById('tabelaBody');
             
-            try {
-                // URL da Google Sheets API
-                const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A1:Z1000?key=${API_KEY}`;
-                
-                const response = await fetch(url);
-                const data = await response.json();
-                
-                if (!data.values || data.values.length === 0) {
-                    container.innerHTML = '<div class="error">❌ Nenhum dado encontrado na planilha</div>';
-                    return;
-                }
-                
-                // Processar dados
-                const headers = data.values[0];
-                const rows = data.values.slice(1);
-                
-                let html = '<table><thead><tr>';
-                headers.forEach(header => {
-                    html += `<th>${header || ''}</th>`;
-                });
-                html += '</tr></thead><tbody>';
-                
-                rows.forEach(row => {
-                    if (row.length > 0 && row[0]) { // Pular linhas vazias
-                        html += '<tr>';
-                        row.forEach((cell, idx) => {
-                            let cellContent = cell || '';
-                            
-                            // Formatar coluna de status
-                            if (idx === row.length - 1) { // Última coluna como status
-                                if (cellContent.toLowerCase().includes('ok') || cellContent.toLowerCase().includes('ativo')) {
-                                    cellContent = `<span class="status-badge status-ok">✅ ${cellContent}</span>`;
-                                } else if (cellContent.toLowerCase().includes('atenção')) {
-                                    cellContent = `<span class="status-badge status-atencao">⚠️ ${cellContent}</span>`;
-                                } else if (cellContent.toLowerCase().includes('crítico')) {
-                                    cellContent = `<span class="status-badge status-critico">❌ ${cellContent}</span>`;
-                                }
-                            }
-                            
-                            html += `<td>${cellContent}</td>`;
-                        });
-                        html += '</tr>';
-                    }
-                });
-                
-                html += '</tbody></table>';
-                container.innerHTML = html;
-                
-            } catch (error) {
-                console.error('Erro ao carregar dados:', error);
-                container.innerHTML = `<div class="error">❌ Erro ao carregar dados: ${error.message}</div>`;
+            if (filtrados.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2" class="no-results">Nenhum indicador encontrado</td></tr>';
+                return;
             }
+            
+            tbody.innerHTML = filtrados.map(item => `
+                <tr>
+                    <td><strong>${item.tipo}</strong></td>
+                    <td><span class="badge">${item.meta}</span></td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('totalIndicadores').textContent = dados.length;
         }
         
-        // Carregar dados ao abrir página
-        carregarDados();
+        function atualizarData() {
+            const hoje = new Date();
+            const dia = String(hoje.getDate()).padStart(2, '0');
+            const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+            const ano = hoje.getFullYear();
+            document.getElementById('dataAtualizacao').textContent = `${dia}/${mes}/${ano}`;
+        }
         
-        // Atualizar a cada 30 segundos
-        setInterval(carregarDados, 30000);
+        // Busca/filtro
+        document.getElementById('searchBox').addEventListener('keyup', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const filtrados = dados.filter(item => 
+                item.tipo.toLowerCase().includes(termo)
+            );
+            renderTabela(filtrados);
+        });
+        
+        // Inicializar
+        renderTabela();
+        atualizarData();
     </script>
 </body>
 </html>
