@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas Quantitativas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+            color: white;
+            padding: 30px;
+            border-bottom: 4px solid #005fa3;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .btn-voltar {
+            display: inline-block;
+            background: white;
+            color: #0066cc;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .btn-voltar:hover {
+            background: #f0f7ff;
+            transform: translateX(-3px);
+        }
+        
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .info-box p {
+            color: #0066cc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .spreadsheet-link {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .spreadsheet-link:hover {
+            background: #0055aa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="btn-voltar">← Voltar</a>
+            <h1>📈 Metas Quantitativas</h1>
+            <p>Acompanhamento das metas quantitativas do contrato</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <p>💡 Acesse a planilha Google Sheets abaixo para visualizar e editar os dados de metas quantitativas.</p>
+            </div>
+            
+            <a href="https://docs.google.com/spreadsheets/d/1IccSz233i_cM2sfGeIRVt80pASmxQY7nmTgdkXv9564" target="_blank" class="spreadsheet-link">
+                📊 Abrir Planilha Google Sheets
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>📊 Metas Quantitativas | Atualizado em 25/11/2025</p>
+        </div>
+    </div>
+</body>
+</html>
