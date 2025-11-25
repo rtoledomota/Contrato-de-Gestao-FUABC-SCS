@@ -3,67 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Qualitativa - FUABC-SCS</title>
+    <title>Metas Qualitativas - FUABC-SCS</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #003d5c; color: #333; padding: 40px; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 10px; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.2); }
-        h1 { color: #1a5f7a; margin-bottom: 20px; }
-        .nav { margin-bottom: 30px; text-align: center; }
-        .nav a { display: inline-block; padding: 10px 15px; margin: 5px; background: #1a5f7a; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; }
-        .nav a:hover { background: #0f3e52; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        th { background: #1a5f7a; color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #ddd; }
-        tr:hover { background: #f5f5f5; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: #1db384; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .nav { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .nav a { background: white; color: #1db384; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .nav a.ativo { background: white; color: #1db384; font-weight: bold; }
+        .nav a:hover { opacity: 0.8; }
+        .content { background: white; padding: 20px; border-radius: 8px; }
+        h1 { color: #1db384; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #1db384; color: white; font-weight: bold; }
+        tr:hover { background: #f9f9f9; }
+        .status-concluido { color: #27ae60; font-weight: bold; }
+        .status-andamento { color: #f39c12; font-weight: bold; }
+        .status-planejado { color: #3498db; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📅 Meta Qualitativa Mensal</h1>
-        
-        <div class="nav">
-            <a href="index.html">🏠 Home</a>
-            <a href="meta1.html">✅ Qualitativas</a>
-            <a href="meta2.html">📊 Quantitativas</a>
-            <a href="meta3.html">📈 Indicadores</a>
-            <a href="acompanhamento.html">📆 Meta Qualitativa</a>
+        <div class="header">
+            <h1>✅ Metas Qualitativas</h1>
+            <div class="nav">
+                <a href="index.html">🏠 Home</a>
+                <a href="meta1.html" class="ativo">✅ Qualitativas</a>
+                <a href="meta2.html">📊 Quantitativas</a>
+                <a href="meta3.html">📈 Indicadores</a>
+                <a href="acompanhamento.html">📅 Acompanhamento</a>
+            </div>
         </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Período</th>
-                    <th>Indicador</th>
-                    <th>Meta</th>
-                    <th>Realizado</th>
-                    <th>Variação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mês 1</td>
-                    <td>Taxa de Ocupação</td>
-                    <td>80%</td>
-                    <td>75%</td>
-                    <td>-5%</td>
-                </tr>
-                <tr>
-                    <td>Mês 2</td>
-                    <td>Tempo de Atendimento</td>
-                    <td>30 min</td>
-                    <td>25 min</td>
-                    <td>-5 min</td>
-                </tr>
-                <tr>
-                    <td>Mês 3</td>
-                    <td>Satisfação</td>
-                    <td>90%</td>
-                    <td>88%</td>
-                    <td>-2%</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="content">
+            <h2>Metas Qualitativas do Contrato de Gestão</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Meta</th>
+                        <th>Responsável</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Implementar sistema de gestão de qualidade</td>
+                        <td>FUABC</td>
+                        <td class="status-andamento">Em andamento</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Capacitar equipes em processos de qualidade</td>
+                        <td>SCS</td>
+                        <td class="status-planejado">Planejado</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Elaborar protocolos de atendimento</td>
+                        <td>FUABC</td>
+                        <td class="status-concluido">Concluído</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
